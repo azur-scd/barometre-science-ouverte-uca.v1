@@ -1,0 +1,126 @@
+{% extends "index.html" %}
+{% block container %}
+
+    <div class="uk-container uk-container-center uk-margin-top">
+        <h3>Tableau de bord des publications</h3>
+        <div class="uk-grid-divider" uk-grid>
+            <div>
+        <div class="uk-alert-primary" uk-alert>
+        <h5><b>Périmètre</b> : {{names}}</h5>
+        </div>
+            </div>
+            <div>
+        <div class="uk-alert-primary" uk-alert>
+        <h5><b>Nombre de publications</b> : {{total_records}}</h5>
+        </div>
+        </div>
+        </div>
+        <input id="source" type="hidden" value="{{source}}" />
+        {% if source == "structures" %}
+        <input id="ids" type="hidden" value="{{ids}}" />
+        {% endif %}
+
+        <ul class="uk-tab" data-uk-tab="{connect:'#my-id'}">
+            <li><a href="">Dashboard</a></li>
+            <li><a href="">Baromètre Open Access (2016-2020)</a></li>
+            <li><a href="">Publications</a></li>
+          </ul>
+
+          <ul id="my-id" class="uk-switcher uk-margin">
+            <li><a href="#" id="autoplayer" data-uk-switcher-item="next"></a><!--dasboard-->
+                <div class="uk-section uk-section-muted">
+                    <div class="uk-grid-column-large uk-grid-row-large uk-child-width-1-2@s uk-text-center" uk-grid>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body">
+                                <h3 class="uk-card-title">Evolution annuelle en valeurs absolues (avec part OA)</h3>
+                                <div id="docyearstacked"></div>
+                                <div class="card-trip-infos">
+                                    <p><a href="/group/publis/year,is_oa_normalized" target="_blanck">Data API</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body">
+                                <h3>Evolution annuelle de la part OA en valeurs relatives</h3>
+                                <div id="docyearstackedrelative"></div>
+                                <div class="card-trip-infos">
+                                    <p><a href="/group/publis/year,is_oa_normalized" target="_blanck">Data API</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body">
+                                <h3>Part globale Open Access</h3>
+                                <div id="oadonut"></div>
+                                <div class="card-trip-infos">
+                                    <p><a href="/agg/publis/is_oa_normalized" target="_blanck">Data API</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body">
+                                <h3>Dont répartition par type d'Open Access</h3>
+                                <div id="oasemicircle"></div>
+                                <div class="card-trip-infos">
+                                    <p><a href="/agg/publis/oa_status" target="_blanck">Data API</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </li>
+            <li><!--observatoire OA-->
+                <div class="uk-section uk-section-muted">
+                    <div class="uk-grid-column-large uk-grid-row-large uk-child-width-1-2@s uk-text-center" uk-grid>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body">
+                                <h3 class="uk-card-title">Proportion des publications en accès ouvert et de leurs types d'hébergement</h3>
+                                <div id="oa_obs_nesteddonut" style="width:100%;min-height:500px;"></div>
+                                <div class="card-trip-infos">
+                                    <p><a href="/agg/publis/is_oa_normalized" target="_blanck">Data API</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body">
+                                <h3 class="uk-card-title">Evolution du taux d'accès ouvert aux publications</h3>
+                                <div id="oa_obs_stackedrelative" style="width:100%;min-height:500px;"></div>
+                                <div class="card-trip-infos">
+                                    <p><a href="/group/publis/year,oa_type_normalized" target="_blanck">Data API</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-section uk-section-muted">
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body">
+                                <h3 class="uk-card-title">Taux d'accès ouvert par éditeur/plateforme (préfixes DOI)</h3>
+                                <div id="oa_obs_stackedrelative_publisher" style="width:100%;min-height:600px;"></div>
+                                <div class="card-trip-infos">
+                                    <p><a href="/group/publis/crossref_publisher,oa_type_normalized" target="_blanck">Data API</a></p>
+                                </div>
+                            </div>
+                        </div>
+                  </div>
+                  <div class="uk-section uk-section-muted">
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body">
+                            <h3 class="uk-card-title">Répartition des publications par genre et type d'accès</h3>
+                            <div id="oa_obs_treemap" style="width:80%;min-height:500px;"></div>
+                            <div class="card-trip-infos">
+                                <p><a href="/group/publis/oa_type_normalized,genre" target="_blanck">Data API</a></p>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+            
+            </li>
+            <li><!--publications-->
+                <div id="gridContainer"></div>
+            </li>
+          </ul>
+        </div>
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename= 'lib/devextreme-20.1.7/css/dx.material.blue.dark.compact.css')}}">
+        <script src="{{ url_for('static', filename= 'js/main.js')}}"></script>
+    {% endblock %}

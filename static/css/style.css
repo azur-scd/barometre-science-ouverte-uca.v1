@@ -1,0 +1,63 @@
+.amcharts-amexport-item {
+  border: 2px solid #777;
+}
+.amcharts-amexport-top .amcharts-amexport-item > .amcharts-amexport-menu {
+  top: -3px!important;
+  left: 2px
+}
+.card-trip-infos {
+  padding: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+#docyearstacked {
+    width: 100%;
+    min-height: 400px;
+}
+#docyearstackedrelative {
+  width: 100%;
+  min-height: 400px;
+}
+#oadonut {
+    width: 100%;
+    min-height: 400px;
+  }
+#oasemicircle {
+    width: 100%;
+    min-height: 400px;
+  }
+#oa_obs_nesteddonut {
+    width: 100%;
+    min-height: 400px;
+  }
+/*d3.js network*/
+/*  .link {
+    stroke: #aaa;
+  } 
+  .node {
+    pointer-events: all;
+    stroke: none;
+    stroke-width: 40px;
+  }   
+  .label {
+    fill: #333;
+      font-size: 15px;
+    font-family: Arial, sans-serif;
+  }  */
+  g.links line {
+    stroke: #999;
+    stroke-opacity: 0.6;
+  }
+  
+  g.nodes circle{
+    stroke: #fff;
+    stroke-width: 1.5px;
+  }
+  
+  text {
+    font-family: sans-serif;
+    font-size: 12px;
+  }

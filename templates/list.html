@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% block container %}
+<div class="uk-container uk-container-center uk-margin-top">
+    <div class="uk-section">
+        <div class="uk-container">
+            {% if source == "structures"%}
+            <h3>Accès par structure</h3>
+            <div class="uk-alert-primary" uk-alert uk-sticky>
+            <p uk-margin>
+                Sélectionner une ou plusieurs structures dans la liste puis cliquer <button id="btn" class="uk-button uk-button-secondary"><span class='uk-icon' uk-icon='forward'></span> ici</button> pour voir le tableau de bord correspondant
+            </p>
+            </div>
+            <div id="affDatagrid"></div>
+            {% else %}
+                {% endif %}
+        </div>
+    </div>
+</div>
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename= 'lib/devextreme-20.1.7/css/dx.material.blue.light.compact.css')}}">
+<script src="{{ url_for('static', filename= 'js/list.js')}}"></script>
+{% endblock %}   

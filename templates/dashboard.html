@@ -1,0 +1,264 @@
+{% extends "index.html" %}
+{% block container %}
+
+    <div class="uk-container uk-container-center uk-margin-top">
+        <h3>Tableau de bord des publications (2016-2020)</h3>
+        <div class="uk-grid-divider" uk-grid>
+            <div>
+        <div class="uk-alert-primary" uk-alert>
+        <h5><b>Périmètre</b> : {{names}}</h5>
+        </div>
+            </div>
+            <div>
+        <div class="uk-alert-primary" uk-alert>
+        <h5><b>Nombre de publications</b> : {{total_records}}</h5>
+        </div>
+        </div>
+        </div>
+        <input id="source" type="hidden" value="{{source}}" />
+        {% if source == "structures" %}
+        <input id="ids" type="hidden" value="{{ids}}" />
+        {% endif %}
+
+        <ul class="uk-tab" data-uk-tab="{connect:'#my-id'}">
+            <!--<li><a href="">Dashboard</a></li>-->
+            <li><a href="">Baromètre Open Access</a></li>
+            <li><a href="">Réseau de co-occurences</a></li>
+            <li><a href="">Publications</a></li>
+          </ul>
+
+          <ul id="my-id" class="uk-switcher uk-margin">
+            <!--dasboard 
+            <li><a href="#" id="autoplayer" data-uk-switcher-item="next"></a>
+                {%for (plot,f,title) in zip(dashboard_plots,dashboard_functions,dashboard_titles)%} 
+                <div class="uk-section uk-section-muted">
+                    <div class="uk-text-center" uk-grid>
+                        <div class="uk-card uk-width-expand@m">
+                            <div class="uk-card-header">
+                                <h4 class="uk-card-title">{{title}}</h4>
+                            </div>
+                            <div class="uk-card-body">
+                                <div class="chart" id="dashboardgraph{{loop.index0}}">
+                                </div>
+                                <div id="displaydashboarddata{{loop.index0}}"></div>
+                            </div>
+                        </div>
+                        <div class="uk-width-auto@m">
+                            <div class="uk-card uk-card-hover uk-card-default uk-card-body">
+                                <a href="/api/publications?view={{f}}" target="_blanck">Voir les données (API)</a>
+                            </div>
+                          </div> 
+                    </div>
+                    <script type="text/javascript">
+                        var img_png = d3.select('#displaydashboarddata{{loop.index0}}');
+                        var graphs = {{plot|safe}};
+                        var layout = {width: 900,height: 500,margin: { l:300 },legend: {orientation:'h',side:'top'},uniformtext_minsize:10,xaxes:{categoryorder:'category ascending',type:'category'},yaxes:{automargin:true}};
+                        Plotly.plot('dashboardgraph{{loop.index0}}',graphs.data,layout || {});
+                        </script>
+                     </div>
+                    <hr class="uk-divider-icon">
+                {%endfor%}
+              </li>-->
+            <li><!--observatoire OA-->
+                <div class="uk-section uk-section-muted">
+                    <div class="uk-text-center" uk-grid>
+                    <div class="uk-card uk-width-expand@m">
+                        <div class="uk-card-header">
+                            <h4 class="uk-card-title">{{dashboard_titles[0]}}</h4>
+                        </div>
+                        <div class="uk-card-body">
+                            <div class="chart" id="dashboardgraph0">
+                            </div>
+                            <div id="displaydashboarddata0"></div>
+                        </div>
+                    </div>
+                    <div class="uk-width-auto@m">
+                        <div class="uk-card uk-card-hover uk-card-default uk-card-body">
+                            {% if source == "structures" %}
+                            <a href="/api/publications?view={{dashboard_functions[0]}}&ids={{ids}}" target="_blanck">Voir les données (accès par API)</a>
+                            {% else %}
+                            <a href="/api/publications?view={{dashboard_functions[0]}}" target="_blanck">Voir les données (accès par API)</a>
+                            {% endif %}
+                        </div>
+                      </div> 
+                    </div>
+                    <script type="text/javascript">
+                        var img_png = d3.select('#displaydashboarddata0');
+                        var graphs = {{dashboard_plots[0]|safe}};
+                        var layout = {width: 900,height: 500,margin: { l:300 },legend: {orientation:'h',side:'top'},uniformtext_minsize:10,xaxes:{categoryorder:'category ascending',type:'category'},yaxes:{automargin:true}};
+                        Plotly.plot('dashboardgraph0',graphs.data,layout || {});
+                        </script>
+                </div>
+                <hr class="uk-divider-icon">
+                {%for (plot,f,title) in zip(oa_plots,oa_functions,oa_titles)%} 
+                <div class="uk-section uk-section-muted">
+                    <div class="uk-text-center" uk-grid>
+                    <div class="uk-card uk-width-expand@m">
+                        <div class="uk-card-header">
+                            <h4 class="uk-card-title">{{title}}</h4>
+                        </div>
+                        <div class="uk-card-body">
+                            <div class="chart" id="oagraph{{loop.index0}}">
+                            </div>
+                            <div id="displayoadata{{loop.index0}}"></div>
+                        </div>
+                    </div>
+                    <div class="uk-width-auto@m">
+                        <div class="uk-card uk-card-hover uk-card-default uk-card-body">
+                            {% if source == "structures" %}
+                            <a href="/api/publications?view={{f}}&ids={{ids}}" target="_blanck">Voir les données (accès par API)</a>
+                            {% else %}
+                            <a href="/api/publications?view={{f}}" target="_blanck">Voir les données (accès par API)</a>
+                            {% endif %}
+                        </div>
+                      </div>                      
+                    </div>             
+                    <script type="text/javascript">
+                        var img_png = d3.select('#displayoadata{{loop.index0}}');
+                        var graphs = {{plot|safe}};
+                        var layout = {width: 900,height: 500,barmode:'stack',margin: { l:300 },legend: {orientation:'h',side:'top'},uniformtext_minsize:10,xaxes:{categoryorder:'category ascending',type:'category'},yaxes:{automargin:true}};
+                        Plotly.plot('oagraph{{loop.index0}}',graphs.data,layout || {});
+                        </script>
+                     </div>
+                    <hr class="uk-divider-icon">
+                {%endfor%}   
+                <div class="uk-section uk-section-muted">
+                    <div class="uk-text-center">
+                    <div class="uk-card uk-width-expand@m">
+                        <div class="uk-card-header">
+                            <h4 class="uk-card-title">{{dashboard_titles[1]}}</h4>
+                        </div>
+                        <div class="uk-card-body">
+                            <div class="chart" id="dashboardgraph1">
+                            </div>
+                            <div id="displaydashboarddata1"></div>
+                        </div>
+                    </div> 
+                    </div>
+                    <script type="text/javascript">
+                        var img_png = d3.select('#displaydashboarddata1');
+                        var graphs = {{dashboard_plots[1]|safe}};
+                        var layout = {width: 900,height: 500,margin: { l:300 },legend: {orientation:'h',side:'top'},uniformtext_minsize:10,xaxes:{categoryorder:'category ascending',type:'category'},yaxes:{automargin:true}};
+                        Plotly.plot('dashboardgraph1',graphs.data,layout || {});
+                        </script>
+                </div>         
+            </li>
+            <li><!--co-occurences network-->
+                <div class="uk-section uk-section-muted">
+                    <div class="uk-text-center" uk-grid>
+                        <div class="uk-card uk-width-expand@m">
+                            <div class="uk-card-header">
+                                <h4 class="uk-card-title">Graphe des co-occurences (source : titres des publications)</h4>
+                            </div>
+                            <div class="uk-card-body">
+                                <div class="chart" id="d3-network"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+//display area
+var width = 900;
+var height = 600;
+var svg = d3.select("#d3-network")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);	
+//This is the container group for the zoom
+var container = svg.call(d3.zoom().on("zoom", function () {
+    container.attr("transform", d3.event.transform)
+}))
+.append("g");
+
+// Load the JSON data.
+var graph = {{dashboard_network|safe}};
+console.log(graph)
+    var nodeByName = d3.map(graph.nodes, function(d,i) {
+        return d.id;
+    });
+    graph.links.forEach(function(d) {
+        d.source = nodeByName.get(d.source);
+        d.target = nodeByName.get(d.target);
+    }); 
+
+    var simulation = d3.forceSimulation()
+    .nodes(graph.nodes)
+    .force("link", d3.forceLink(graph.links).id(d => d.id))
+    .force("charge", d3.forceManyBody())
+    .force("center", d3.forceCenter(width / 2, height / 2))
+	.force('collide',d3.forceCollide().radius(20).iterations(3));
+
+
+    var link = container.append("g")
+    .attr("class", "links")
+    .selectAll("line")
+    .data(graph.links)
+    .enter().append("line")
+    .attr("stroke-width", function(d) { return Math.sqrt(d.weight); });
+
+    var node = container.append("g")
+    .attr("class", "nodes")
+    .selectAll("g")
+    .data(graph.nodes)
+    .enter().append("g")
+	
+	var circles = node.append("circle")
+      .attr("r", 5)
+      .attr("fill", "blue")
+      .call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended)) ;
+	
+  var labels = node.append("text")
+      .text(function(d) {
+        return d.id;
+      })
+      .attr('x', 6)
+      .attr('y', 3);
+
+simulation
+      .nodes(graph.nodes)
+      .on("tick", ticked);
+
+  simulation.force("link")
+      .links(graph.links);
+
+  function ticked() {
+    link
+        .attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+    node
+        .attr("transform", function(d) {
+          return "translate(" + d.x + "," + d.y + ")";
+        })
+  }
+
+function dragstarted(d) {
+  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+  d.fx = d.x;
+  d.fy = d.y;
+}
+
+function dragged(d) {
+  d.fx = d3.event.x;
+  d.fy = d3.event.y;
+}
+
+function dragended(d) {
+  if (!d3.event.active) simulation.alphaTarget(0);
+  d.fx = null;
+  d.fy = null;
+}
+                    </script>
+                </div>
+            </li>
+            <li><!--publications-->
+                <div id="gridContainer"></div>
+            </li>
+          </ul>
+        </div>
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename= 'lib/devextreme-20.1.7/css/dx.material.blue.dark.compact.css')}}">
+        <script src="{{ url_for('static', filename= 'js/dashboard.js')}}"></script>
+    {% endblock %}
