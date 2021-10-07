@@ -36,7 +36,7 @@ var store = new DevExpress.data.CustomStore({
 });
 
 var treeList = $("#affDatagrid").dxTreeList({
-  dataSource: "/static/data/df_structures.json",
+  dataSource: "/static/data/20210914/df_structures.json",
   //or dataSource: store,
   keyExpr: "id",
   parentIdExpr: "parent_id",

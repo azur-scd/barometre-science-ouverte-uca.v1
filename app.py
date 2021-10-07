@@ -37,9 +37,11 @@ port = app.config['PORT']
 app.jinja_env.globals.update(zip=zip)
 
 ## Variables
-df_structures = pd.read_json("static/data/df_structures.json",encoding="utf-8")
-df_corpus = pd.read_csv("static/data/df_corpus.csv",sep = ',',encoding="utf-8")
-df_doi_oa = pd.read_csv("static/data/df_doi_oa.csv",sep = ',',encoding="utf-8")
+snapshot1 = "20201130"
+snapshot2 = "20210914"
+df_structures = pd.read_json("static/data/"+snapshot2+"/df_structures.json",encoding="utf-8")
+df_corpus = pd.read_csv("static/data/"+snapshot2+"/df_corpus.csv",sep = ',',encoding="utf-8")
+df_doi_oa = pd.read_csv("static/data/"+snapshot2+"/df_doi_oa.csv",sep = ',',encoding="utf-8")
 oa_functions_fig = [charts.oa_rate,charts.oa_rate_by_year,charts.oa_rate_by_publisher,charts.oa_rate_by_type,charts.oa_by_status]
 oa_functions_str = ["oa_rate","oa_rate_by_year","oa_rate_by_publisher","oa_rate_by_type","oa_by_status"]
 oa_titles = ["Proportion des publications en accès ouvert","Evolution du taux d'accès ouvert aux publications","Taux d'accès ouvert aux publications par éditeur","Répartition des publications par type de publications et par accès","Part Open Access : Evolution du type d'accès ouvert"]
@@ -51,7 +53,8 @@ def doi_synthetics(ids=None):
     if ids is None:
         data = df_doi_oa
     else:
-        selected = list(ids.split(","))
+        #selected = list(ids.split(","))
+        selected = [int(i) for i in ids.split(",")]
         print(selected)
         list_doc = df_corpus[df_corpus["aff_internal_id"].isin(selected)]["doi"].unique().tolist()
         list_doc = list(map(str, list_doc))
@@ -181,8 +184,11 @@ def struct(ids):
     if ids == '':
         records = df_structures
     else:
-        selected = list(ids.split(","))
+        #selected = list(ids.split(","))
+        selected = [int(i) for i in ids.split(",")]
+        print(selected)
         records = df_structures[df_structures["id"].isin(selected)]
+        print(records)
     return jsonify(records.fillna('').to_dict(orient='records'))
 
 if __name__ == '__main__':
