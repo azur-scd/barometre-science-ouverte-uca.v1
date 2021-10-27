@@ -42,6 +42,7 @@ snapshot2 = "20210914"
 df_structures = pd.read_json("static/data/"+snapshot2+"/df_structures.json",encoding="utf-8")
 df_corpus = pd.read_csv("static/data/"+snapshot2+"/df_corpus.csv",sep = ',',encoding="utf-8")
 df_doi_oa = pd.read_csv("static/data/"+snapshot2+"/df_doi_oa.csv",sep = ',',encoding="utf-8")
+df_publishers = pd.DataFrame({'publisher':df_doi_oa[df_doi_oa["publisher_by_doiprefix"].notna()]["publisher_by_doiprefix"].value_counts().index, 'count':df_doi_oa[df_doi_oa["publisher_by_doiprefix"].notna()]["publisher_by_doiprefix"].value_counts().values})
 oa_functions_fig = [charts.oa_rate,charts.oa_rate_by_year,charts.oa_rate_by_publisher,charts.oa_rate_by_type,charts.oa_by_status]
 oa_functions_str = ["oa_rate","oa_rate_by_year","oa_rate_by_publisher","oa_rate_by_type","oa_by_status"]
 oa_titles = ["Proportion des publications en accès ouvert","Evolution du taux d'accès ouvert aux publications","Taux d'accès ouvert aux publications par éditeur","Répartition des publications par type de publications et par accès","Part Open Access : Evolution du type d'accès ouvert"]
@@ -49,7 +50,7 @@ dashboard_functions_fig = [cf.oa_by_year,cf.citations_by_oa]
 dashboard_functions_str = ["oa_by_year","citations_by_oa"]
 dashboard_titles = ["Evolution du nombre de publications et de la part de l'accès ouvert","Nombre de citations par type d'accès (ouvert vs fermé)"]
 
-def doi_synthetics(ids=None):
+def doi_synthetics_aff(ids=None):
     if ids is None:
         data = df_doi_oa
     else:
@@ -60,6 +61,16 @@ def doi_synthetics(ids=None):
         list_doc = list(map(str, list_doc))
         print(len(list_doc))
         data = df_doi_oa[df_doi_oa['doi'].isin(list_doc)]
+        #d = df_docs[(df_docs['doi'].isin(list_doc)) & (df_docs["doi"].notna())]
+    return data
+
+def doi_synthetics_pub(names=None):
+    if names is None:
+        data = df_doi_oa
+    else:
+        #selected = list(ids.split(","))
+        selected = [str(i) for i in names.split("|")]
+        data = df_doi_oa[df_doi_oa['publisher_by_doiprefix'].isin(selected)]
         #d = df_docs[(df_docs['doi'].isin(list_doc)) & (df_docs["doi"].notna())]
     return data
 
@@ -123,6 +134,8 @@ def readySource(source):
     """source param is : 'structures' or 'doi_oa' oy maybe later 'authors'"""
     if source == "structures":
         records = df_structures
+    elif source == "publishers":
+        records = df_publishers
     else:
         records = pd.read_csv("static/data/df_"+source+".csv",sep = ',',encoding="utf-8").fillna('').to_dict(orient='records')  
     return render_template('list.html',source=source,len=len(records),records=records) 
@@ -140,11 +153,11 @@ def dashboard(source,ids=None):
     if source == "structures":
         if request.args.get('ids') is not None:
             ids = request.args.get('ids')
-            total_records = doi_synthetics(ids).shape[0]
+            total_records = doi_synthetics_aff(ids).shape[0]
             selected_s =  ",".join([','.join(df_structures[df_structures.id == int(p)]["affiliation-name"]) for p in list(ids.split(","))])
-            oaGraphsJSON = [json.dumps(f(dataframe=doi_synthetics(ids),publisher_field="publisher_by_doiprefix"), cls=plotly.utils.PlotlyJSONEncoder) for f in oa_functions_fig]
-            dashboardGraphsJSON = [json.dumps(f(doi_synthetics(ids)), cls=plotly.utils.PlotlyJSONEncoder) for f in dashboard_functions_fig]
-            dashboardNetworkJSON = json.dumps(network(doi_synthetics(ids)))
+            oaGraphsJSON = [json.dumps(f(dataframe=doi_synthetics_aff(ids),publisher_field="publisher_by_doiprefix"), cls=plotly.utils.PlotlyJSONEncoder) for f in oa_functions_fig]
+            dashboardGraphsJSON = [json.dumps(f(doi_synthetics_aff(ids)), cls=plotly.utils.PlotlyJSONEncoder) for f in dashboard_functions_fig]
+            dashboardNetworkJSON = json.dumps(network(doi_synthetics_aff(ids)))
             return render_template('dashboard.html',ids=ids,source="structures",names=selected_s,total_records=total_records,oa_functions=oa_functions_str,oa_plots=oaGraphsJSON,oa_titles=oa_titles,dashboard_functions=dashboard_functions_str,dashboard_plots=dashboardGraphsJSON,dashboard_titles=dashboard_titles,dashboard_network=dashboardNetworkJSON)
         else:
             print("no ids submitted")
@@ -153,7 +166,7 @@ def dashboard(source,ids=None):
 @app.route('/api/publications', methods = ['GET'])
 def publis(): 
     if 'ids' in request.args:
-        df = doi_synthetics(request.args.get('ids'))
+        df = doi_synthetics_aff(request.args.get('ids'))
     else:
         df = df_doi_oa
     if 'view' in request.args:
@@ -190,6 +203,14 @@ def struct(ids):
         records = df_structures[df_structures["id"].isin(selected)]
         print(records)
     return jsonify(records.fillna('').to_dict(orient='records'))
+
+@app.route('/api/publishers/', defaults={'name': ''})
+@app.route('/api/publishers/<name>', methods = ['GET'])
+def pub(name):
+    if name == '':
+        records = df_publishers
+    return jsonify(records.fillna('').to_dict(orient='records'))
+
 
 if __name__ == '__main__':
     app.run(debug=True,port=port)  

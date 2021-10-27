@@ -7,10 +7,19 @@
             <h3>Accès par structure</h3>
             <div class="uk-alert-primary" uk-alert uk-sticky>
             <p uk-margin>
-                Sélectionner une ou plusieurs structures dans la liste puis cliquer <button id="btn" class="uk-button uk-button-secondary"><span class='uk-icon' uk-icon='forward'></span> ici</button> pour voir le tableau de bord correspondant
+                Sélectionner une ou plusieurs structures dans la liste puis cliquer <button id="btn_aff" class="uk-button uk-button-secondary"><span class='uk-icon' uk-icon='forward'></span> ici</button> pour voir le tableau de bord correspondant
             </p>
             </div>
             <div id="affDatagrid"></div>
+            {% elif source == "publishers"%}
+            <h3>Accès par éditeurs</h3>
+            <div class="uk-alert-primary" uk-alert uk-sticky>
+                <p uk-margin>
+                    Sélectionner un éditeur dans la liste puis cliquer <button id="btn_pub" class="uk-button uk-button-secondary"><span class='uk-icon' uk-icon='forward'></span> ici</button> pour voir le tableau de bord correspondant
+                </p>
+                </div>
+                <span id="selectedItemKeys"></span>
+                <div id="pubDatagrid"></div>
             {% else %}
                 {% endif %}
         </div>

@@ -1,4 +1,4 @@
-$("#btn").dxButton({
+$("#btn_aff").dxButton({
   text: "Get selection",
   onClick: ()=> {
    var selectedRowKeys = treeList.getSelectedRowKeys();
@@ -23,7 +23,16 @@ function* getAllChildren(arr) {
   }
 };
 
-var store = new DevExpress.data.CustomStore({
+$("#btn_pub").dxButton({
+  text: "Get selection",
+  onClick: ()=> {
+    var selectedRowKeys = dataGrid.getSelectedRowKeys()
+    var selected2send = $.map(selectedRowKeys, function(value) {return value}).join("|")
+    window.open("/dashboard/publishers?names="+selected2send, "_blank");
+  }
+})
+
+var store_structures = new DevExpress.data.CustomStore({
   key: "id",
   load: function () {
     return $.ajax({
@@ -35,9 +44,21 @@ var store = new DevExpress.data.CustomStore({
           }      
 });
 
+var store_publishers = new DevExpress.data.CustomStore({
+  key: "publisher",
+  load: function () {
+    return $.ajax({
+      method: 'GET',
+      url: "/api/publishers",
+      success: function (response) { return response.data;},
+      error : function(response) {console.log(response.statusText);}
+  })					
+          }      
+});
+
 var treeList = $("#affDatagrid").dxTreeList({
   dataSource: "/static/data/20210914/df_structures.json",
-  //or dataSource: store,
+  //or dataSource: store_structures,
   keyExpr: "id",
   parentIdExpr: "parent_id",
   showRowLines: false,
@@ -109,53 +130,7 @@ searchPanel: {
             }
           }
       },
-     /* {
-      dataField: "id",
-      caption: "Alignements",
-      allowSorting: false,
-      alignment: "left",
-      //maxWidth: 100,
-      cellTemplate: function(container, options) {
-          var currentStruct = options.data;
-          if(currentStruct.id != 1 & currentStruct.id != 2 & currentStruct.id != 3) {
-       container
-      .append($("<span>", { "class": "uk-badge", text: 'Scopus ID : ' + currentStruct.affiliation_id }))
-      .append("\n")
-    if(currentStruct.ppn_valide !== 'nan' & currentStruct.ppn_valide !== null) {
-      container
-       //.append($("<span>", { "class": "uk-badge", text: 'Idref : ' + currentStruct.ppn_valide }))
-      .append("<a href='https://www.idref.fr/"+currentStruct.ppn_valide + "' target='_blanck'><span class='uk-badge'>Idref : " + currentStruct.ppn_valide + "<span class='uk-margin-small-right uk-icon' uk-icon='link'></span></span></a>")
-      .append("\n")
-    }	
-  if(currentStruct.HAL !== 'nan' & currentStruct.HAL !== null) {
-      container
-      .append("<a href='https://aurehal.archives-ouvertes.fr/structure/read/id/"+currentStruct.HAL + "' target='_blanck'><span class='uk-badge'>IdHAL : " + currentStruct.HAL + "<span class='uk-margin-small-right uk-icon' uk-icon='link'></span></span></a>")
-      .append("\n")
-  }
-  if(currentStruct.RNSR !== 'nan' & currentStruct.RNSR !== null) {
-              container
-      .append("<a href='https://appliweb.dgri.education.fr/rnsr/ChoixCriteres.jsp?PUBLIC=OK' target='_blanck'><span class='uk-badge'>RNSR : " + currentStruct.RNSR + "<span class='uk-margin-small-right uk-icon' uk-icon='link'></span></span></a>")
-      .append("\n")
-  }
-  if(currentStruct.BNF !== 'nan' & currentStruct.BNF !== null) {
-              container
-      .append("<a href='http://catalogue.bnf.fr"+currentStruct.BNF + "' target='_blanck'><span class='uk-badge'>BnF : " + currentStruct.BNF + "<span class='uk-margin-small-right uk-icon' uk-icon='link'></span></span></a>")
-      .append("\n")
-  }
-  if(currentStruct.VIAF !== 'nan' & currentStruct.VIAF !== null) {
-              container
-      .append("<a href='http://viaf.org/viaf/"+currentStruct.VIAF + "' target='_blanck'><span class='uk-badge'>VIAF : " + currentStruct.VIAF + "<span class='uk-margin-small-right uk-icon' uk-icon='link'></span></span></a>")
-      .append("\n")
-  }
-  if(currentStruct.ISNI !== 'nan' & currentStruct.ISNI !== null) {
-              container
-      .append("<a href='https://isni.oclc.org/xslt/DB=1.2/SET=2/TTL=1/CMD?ACT=SRCH&IKT=6102&SRT=LST_nd&TRM=ISN%3A"+currentStruct.ISNI + "' target='_blanck'><span class='uk-badge'>ISNI : " + currentStruct.ISNI + "<span class='uk-margin-small-right uk-icon' uk-icon='link'></span></span></a>")
-      .append("\n")
-  }
-          
-      }
-  }
-}*/,
+     ,
   {
     dataField: "document-count-period",
     width: 80,
@@ -164,3 +139,56 @@ searchPanel: {
   ],
   expandedRowKeys: [1, 2, 3]
 }).dxTreeList("instance");
+
+var dataGrid = $("#pubDatagrid").dxDataGrid({
+  dataSource: store_publishers,
+  keyExpr: "publisher",
+  showBorders: false,
+  allowColumnResizing: true,
+  columnResizingMode: "nextColumn",
+  selection: {
+      mode: "multiple"
+  },
+  paging: {
+    pageSize: 20
+},
+pager: {
+    showPageSizeSelector: true,
+    allowedPageSizes: [
+        20,
+        50,
+        150,
+        200,
+        250
+    ],
+    showInfo: true
+},
+"export": {
+    enabled: true,
+    fileName: "publishers"
+},
+searchPanel: {
+    visible: true
+},
+  columns: [{ 
+    dataField: "publisher",
+    caption: "Editeur"
+  },
+  {
+    dataField: "count",
+    caption: "Nombre de publications"
+  }],
+  onSelectionChanged: function(selectedItems) {
+    var data = selectedItems.selectedRowsData;
+    if(data.length > 0) {
+      console.log($.map(data, function(value) {return value.publisher;}).join(", "))
+      $("selectedItemKeys").text(
+          $.map(data, function(value) {
+                    return value.publisher;
+                }).join(", "));
+    }
+    else {
+      $("#selectedItemKeys").text("Nobody has been selected");
+    }
+}
+}).dxDataGrid("instance");
