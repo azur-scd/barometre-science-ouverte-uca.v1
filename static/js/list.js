@@ -27,11 +27,12 @@ $("#btn_pub").dxButton({
   text: "Get selection",
   onClick: ()=> {
     var selectedRowKeys = dataGrid.getSelectedRowKeys()
-    var selected2send = $.map(selectedRowKeys, function(value) {return value}).join("|")
-    window.open("/dashboard/publishers?names="+selected2send, "_blank");
+    var selected2send = $.map(selectedRowKeys, function(value) {return value.doi_prefix}).join(",")
+    window.open("/dashboard/publishers?prefixs="+selected2send, "_blank");
   }
 })
 
+/*Unused : use flat json files instead
 var store_structures = new DevExpress.data.CustomStore({
   key: "id",
   load: function () {
@@ -54,7 +55,7 @@ var store_publishers = new DevExpress.data.CustomStore({
       error : function(response) {console.log(response.statusText);}
   })					
           }      
-});
+});*/
 
 var treeList = $("#affDatagrid").dxTreeList({
   dataSource: "/static/data/20210914/df_structures.json",
@@ -141,11 +142,12 @@ searchPanel: {
 }).dxTreeList("instance");
 
 var dataGrid = $("#pubDatagrid").dxDataGrid({
-  dataSource: store_publishers,
-  keyExpr: "publisher",
+  dataSource: "/static/data/20210914/df_publishers.json",
+  //or dataSource: store_publishers,
+  keyExpr: "doi_prefix",
   showBorders: false,
   allowColumnResizing: true,
-  columnResizingMode: "nextColumn",
+  columnAutoWidth: true,
   selection: {
       mode: "multiple"
   },
@@ -157,9 +159,9 @@ pager: {
     allowedPageSizes: [
         20,
         50,
-        150,
+        100,
         200,
-        250
+        300
     ],
     showInfo: true
 },
@@ -171,7 +173,11 @@ searchPanel: {
     visible: true
 },
   columns: [{ 
-    dataField: "publisher",
+    dataField: "doi_prefix",
+    caption: "Préfixe DOI"
+  },
+    { 
+    dataField: "publisher_by_doiprefix",
     caption: "Editeur"
   },
   {

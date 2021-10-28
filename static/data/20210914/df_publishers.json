@@ -1,0 +1,1592 @@
+[
+   {
+      "doi_prefix":10.1016,
+      "publisher_by_doiprefix":"Elsevier BV",
+      "count":2863
+   },
+   {
+      "doi_prefix":10.1007,
+      "publisher_by_doiprefix":"Springer Science and Business Media LLC",
+      "count":1489
+   },
+   {
+      "doi_prefix":10.1109,
+      "publisher_by_doiprefix":"Institute of Electrical and Electronics Engineers (IEEE)",
+      "count":840
+   },
+   {
+      "doi_prefix":10.1051,
+      "publisher_by_doiprefix":"EDP Sciences",
+      "count":698
+   },
+   {
+      "doi_prefix":10.1038,
+      "publisher_by_doiprefix":"Springer Science and Business Media LLC",
+      "count":542
+   },
+   {
+      "doi_prefix":10.1002,
+      "publisher_by_doiprefix":"Wiley",
+      "count":495
+   },
+   {
+      "doi_prefix":10.1093,
+      "publisher_by_doiprefix":"Oxford University Press (OUP)",
+      "count":488
+   },
+   {
+      "doi_prefix":10.1111,
+      "publisher_by_doiprefix":"Wiley",
+      "count":418
+   },
+   {
+      "doi_prefix":10.1103,
+      "publisher_by_doiprefix":"American Physical Society (APS)",
+      "count":389
+   },
+   {
+      "doi_prefix":10.3847,
+      "publisher_by_doiprefix":"American Astronomical Society",
+      "count":265
+   },
+   {
+      "doi_prefix":10.3389,
+      "publisher_by_doiprefix":"Frontiers Media SA",
+      "count":247
+   },
+   {
+      "doi_prefix":10.1117,
+      "publisher_by_doiprefix":"SPIE-Intl Soc Optical Eng",
+      "count":244
+   },
+   {
+      "doi_prefix":10.1186,
+      "publisher_by_doiprefix":"Springer Science and Business Media LLC",
+      "count":201
+   },
+   {
+      "doi_prefix":10.1088,
+      "publisher_by_doiprefix":"IOP Publishing",
+      "count":196
+   },
+   {
+      "doi_prefix":10.1145,
+      "publisher_by_doiprefix":"Association for Computing Machinery (ACM)",
+      "count":173
+   },
+   {
+      "doi_prefix":10.3917,
+      "publisher_by_doiprefix":"CAIRN",
+      "count":167
+   },
+   {
+      "doi_prefix":10.1364,
+      "publisher_by_doiprefix":"The Optical Society",
+      "count":154
+   },
+   {
+      "doi_prefix":10.1371,
+      "publisher_by_doiprefix":"Public Library of Science (PLoS)",
+      "count":140
+   },
+   {
+      "doi_prefix":10.1021,
+      "publisher_by_doiprefix":"American Chemical Society (ACS)",
+      "count":138
+   },
+   {
+      "doi_prefix":10.1177,
+      "publisher_by_doiprefix":"SAGE Publications",
+      "count":128
+   },
+   {
+      "doi_prefix":10.1017,
+      "publisher_by_doiprefix":"Cambridge University Press (CUP)",
+      "count":121
+   },
+   {
+      "doi_prefix":10.1063,
+      "publisher_by_doiprefix":"AIP Publishing",
+      "count":114
+   },
+   {
+      "doi_prefix":10.1029,
+      "publisher_by_doiprefix":"American Geophysical Union (AGU)",
+      "count":108
+   },
+   {
+      "doi_prefix":10.23919,
+      "publisher_by_doiprefix":"Institute of Electrical and Electronics Engineers (IEEE)",
+      "count":94
+   },
+   {
+      "doi_prefix":10.1039,
+      "publisher_by_doiprefix":"Royal Society of Chemistry (RSC)",
+      "count":88
+   },
+   {
+      "doi_prefix":10.1097,
+      "publisher_by_doiprefix":"Ovid Technologies (Wolters Kluwer Health)",
+      "count":77
+   },
+   {
+      "doi_prefix":10.1126,
+      "publisher_by_doiprefix":"American Association for the Advancement of Science (AAAS)",
+      "count":64
+   },
+   {
+      "doi_prefix":10.1142,
+      "publisher_by_doiprefix":"World Scientific Pub Co Pte Ltd",
+      "count":60
+   },
+   {
+      "doi_prefix":10.1136,
+      "publisher_by_doiprefix":"BMJ",
+      "count":53
+   },
+   {
+      "doi_prefix":10.3233,
+      "publisher_by_doiprefix":"IOS Press",
+      "count":52
+   },
+   {
+      "doi_prefix":10.1515,
+      "publisher_by_doiprefix":"Walter de Gruyter GmbH",
+      "count":47
+   },
+   {
+      "doi_prefix":10.1137,
+      "publisher_by_doiprefix":"Society for Industrial & Applied Mathematics (SIAM)",
+      "count":45
+   },
+   {
+      "doi_prefix":10.1098,
+      "publisher_by_doiprefix":"The Royal Society",
+      "count":45
+   },
+   {
+      "doi_prefix":10.1108,
+      "publisher_by_doiprefix":"Emerald",
+      "count":39
+   },
+   {
+      "doi_prefix":10.18632,
+      "publisher_by_doiprefix":"Impact Journals, LLC",
+      "count":37
+   },
+   {
+      "doi_prefix":10.1127,
+      "publisher_by_doiprefix":"Schweizerbart",
+      "count":34
+   },
+   {
+      "doi_prefix":10.1123,
+      "publisher_by_doiprefix":"Human Kinetics",
+      "count":33
+   },
+   {
+      "doi_prefix":10.4324,
+      "publisher_by_doiprefix":"Informa UK Limited",
+      "count":32
+   },
+   {
+      "doi_prefix":10.1073,
+      "publisher_by_doiprefix":"Proceedings of the National Academy of Sciences",
+      "count":32
+   },
+   {
+      "doi_prefix":10.1684,
+      "publisher_by_doiprefix":"John Libbey Eurotext",
+      "count":31
+   },
+   {
+      "doi_prefix":10.1242,
+      "publisher_by_doiprefix":"The Company of Biologists",
+      "count":31
+   },
+   {
+      "doi_prefix":10.7554,
+      "publisher_by_doiprefix":"eLife Sciences Publications, Ltd",
+      "count":31
+   },
+   {
+      "doi_prefix":10.1161,
+      "publisher_by_doiprefix":"Ovid Technologies (Wolters Kluwer Health)",
+      "count":28
+   },
+   {
+      "doi_prefix":10.5194,
+      "publisher_by_doiprefix":"Copernicus GmbH",
+      "count":27
+   },
+   {
+      "doi_prefix":10.21037,
+      "publisher_by_doiprefix":"AME Publishing Company",
+      "count":26
+   },
+   {
+      "doi_prefix":10.1158,
+      "publisher_by_doiprefix":"American Association for Cancer Research (AACR)",
+      "count":26
+   },
+   {
+      "doi_prefix":10.1155,
+      "publisher_by_doiprefix":"Hindawi Limited",
+      "count":25
+   },
+   {
+      "doi_prefix":10.15252,
+      "publisher_by_doiprefix":"EMBO",
+      "count":25
+   },
+   {
+      "doi_prefix":10.1214,
+      "publisher_by_doiprefix":"Institute of Mathematical Statistics",
+      "count":25
+   },
+   {
+      "doi_prefix":10.3934,
+      "publisher_by_doiprefix":"American Institute of Mathematical Sciences (AIMS)",
+      "count":25
+   },
+   {
+      "doi_prefix":10.1089,
+      "publisher_by_doiprefix":"Mary Ann Liebert Inc",
+      "count":24
+   },
+   {
+      "doi_prefix":10.1785,
+      "publisher_by_doiprefix":"Seismological Society of America (SSA)",
+      "count":24
+   },
+   {
+      "doi_prefix":10.3997,
+      "publisher_by_doiprefix":"EAGE Publications",
+      "count":24
+   },
+   {
+      "doi_prefix":10.1182,
+      "publisher_by_doiprefix":"American Society of Hematology",
+      "count":21
+   },
+   {
+      "doi_prefix":10.1074,
+      "publisher_by_doiprefix":"American Society for Biochemistry & Molecular Biology (ASBMB)",
+      "count":19
+   },
+   {
+      "doi_prefix":10.2174,
+      "publisher_by_doiprefix":"Bentham Science Publishers Ltd.",
+      "count":19
+   },
+   {
+      "doi_prefix":10.3166,
+      "publisher_by_doiprefix":"Lavoisier",
+      "count":18
+   },
+   {
+      "doi_prefix":10.1128,
+      "publisher_by_doiprefix":"American Society for Microbiology",
+      "count":18
+   },
+   {
+      "doi_prefix":10.1001,
+      "publisher_by_doiprefix":"American Medical Association (AMA)",
+      "count":17
+   },
+   {
+      "doi_prefix":10.1159,
+      "publisher_by_doiprefix":"S. Karger AG",
+      "count":16
+   },
+   {
+      "doi_prefix":10.1172,
+      "publisher_by_doiprefix":"American Society for Clinical Investigation",
+      "count":16
+   },
+   {
+      "doi_prefix":10.5802,
+      "publisher_by_doiprefix":"Cellule MathDoc\/CEDRAM",
+      "count":15
+   },
+   {
+      "doi_prefix":10.22489,
+      "publisher_by_doiprefix":"Computing in Cardiology",
+      "count":15
+   },
+   {
+      "doi_prefix":10.1055,
+      "publisher_by_doiprefix":"Georg Thieme Verlag KG",
+      "count":14
+   },
+   {
+      "doi_prefix":10.1249,
+      "publisher_by_doiprefix":"Ovid Technologies (Wolters Kluwer Health)",
+      "count":14
+   },
+   {
+      "doi_prefix":10.1201,
+      "publisher_by_doiprefix":"Informa UK Limited",
+      "count":14
+   },
+   {
+      "doi_prefix":10.1152,
+      "publisher_by_doiprefix":"American Physiological Society",
+      "count":14
+   },
+   {
+      "doi_prefix":10.1134,
+      "publisher_by_doiprefix":"Pleiades Publishing Ltd",
+      "count":14
+   },
+   {
+      "doi_prefix":10.1144,
+      "publisher_by_doiprefix":"Geological Society of London",
+      "count":13
+   },
+   {
+      "doi_prefix":10.1096,
+      "publisher_by_doiprefix":"Wiley",
+      "count":12
+   },
+   {
+      "doi_prefix":10.1534,
+      "publisher_by_doiprefix":"Oxford University Press (OUP)",
+      "count":12
+   },
+   {
+      "doi_prefix":10.4171,
+      "publisher_by_doiprefix":"European Mathematical Society - EMS - Publishing House GmbH",
+      "count":12
+   },
+   {
+      "doi_prefix":10.23736,
+      "publisher_by_doiprefix":"Edizioni Minerva Medica",
+      "count":11
+   },
+   {
+      "doi_prefix":10.1163,
+      "publisher_by_doiprefix":"Brill",
+      "count":11
+   },
+   {
+      "doi_prefix":10.2147,
+      "publisher_by_doiprefix":"Informa UK Limited",
+      "count":11
+   },
+   {
+      "doi_prefix":10.1504,
+      "publisher_by_doiprefix":"Inderscience Publishers",
+      "count":10
+   },
+   {
+      "doi_prefix":10.1146,
+      "publisher_by_doiprefix":"Annual Reviews",
+      "count":10
+   },
+   {
+      "doi_prefix":10.4018,
+      "publisher_by_doiprefix":"IGI Global",
+      "count":10
+   },
+   {
+      "doi_prefix":10.1101,
+      "publisher_by_doiprefix":"Cold Spring Harbor Laboratory",
+      "count":10
+   },
+   {
+      "doi_prefix":10.1209,
+      "publisher_by_doiprefix":"IOP Publishing",
+      "count":10
+   },
+   {
+      "doi_prefix":10.5978,
+      "publisher_by_doiprefix":"International Phototherapy Association",
+      "count":9
+   },
+   {
+      "doi_prefix":10.4028,
+      "publisher_by_doiprefix":"Trans Tech Publications, Ltd.",
+      "count":9
+   },
+   {
+      "doi_prefix":10.1057,
+      "publisher_by_doiprefix":"Springer Science and Business Media LLC",
+      "count":9
+   },
+   {
+      "doi_prefix":10.1053,
+      "publisher_by_doiprefix":"Elsevier BV",
+      "count":9
+   },
+   {
+      "doi_prefix":10.1049,
+      "publisher_by_doiprefix":"Institution of Engineering and Technology (IET)",
+      "count":9
+   },
+   {
+      "doi_prefix":10.37236,
+      "publisher_by_doiprefix":"The Electronic Journal of Combinatorics",
+      "count":9
+   },
+   {
+      "doi_prefix":10.1122,
+      "publisher_by_doiprefix":"Society of Rheology",
+      "count":9
+   },
+   {
+      "doi_prefix":10.3758,
+      "publisher_by_doiprefix":"Springer Science and Business Media LLC",
+      "count":9
+   },
+   {
+      "doi_prefix":10.1212,
+      "publisher_by_doiprefix":"Ovid Technologies (Wolters Kluwer Health)",
+      "count":8
+   },
+   {
+      "doi_prefix":10.1112,
+      "publisher_by_doiprefix":"Wiley",
+      "count":8
+   },
+   {
+      "doi_prefix":10.1094,
+      "publisher_by_doiprefix":"Scientific Societies",
+      "count":8
+   },
+   {
+      "doi_prefix":10.3791,
+      "publisher_by_doiprefix":"MyJove Corporation",
+      "count":8
+   },
+   {
+      "doi_prefix":10.21437,
+      "publisher_by_doiprefix":"International Speech Communication Association",
+      "count":8
+   },
+   {
+      "doi_prefix":10.12681,
+      "publisher_by_doiprefix":"National Documentation Centre (EKT)",
+      "count":7
+   },
+   {
+      "doi_prefix":10.1164,
+      "publisher_by_doiprefix":"American Thoracic Society",
+      "count":7
+   },
+   {
+      "doi_prefix":10.2478,
+      "publisher_by_doiprefix":"Walter de Gruyter GmbH",
+      "count":7
+   },
+   {
+      "doi_prefix":10.1113,
+      "publisher_by_doiprefix":"Wiley",
+      "count":7
+   },
+   {
+      "doi_prefix":10.4153,
+      "publisher_by_doiprefix":"Canadian Mathematical Society",
+      "count":6
+   },
+   {
+      "doi_prefix":10.2196,
+      "publisher_by_doiprefix":"JMIR Publications Inc.",
+      "count":6
+   },
+   {
+      "doi_prefix":10.1523,
+      "publisher_by_doiprefix":"Society for Neuroscience",
+      "count":6
+   },
+   {
+      "doi_prefix":10.1083,
+      "publisher_by_doiprefix":"Rockefeller University Press",
+      "count":6
+   },
+   {
+      "doi_prefix":10.1287,
+      "publisher_by_doiprefix":"Institute for Operations Research and the Management Sciences (INFORMS)",
+      "count":6
+   },
+   {
+      "doi_prefix":10.24033,
+      "publisher_by_doiprefix":"Societe Mathematique de France",
+      "count":6
+   },
+   {
+      "doi_prefix":10.1042,
+      "publisher_by_doiprefix":"Portland Press Ltd.",
+      "count":6
+   },
+   {
+      "doi_prefix":10.3324,
+      "publisher_by_doiprefix":"Ferrata Storti Foundation (Haematologica)",
+      "count":6
+   },
+   {
+      "doi_prefix":10.2143,
+      "publisher_by_doiprefix":"Peeters Publishers",
+      "count":5
+   },
+   {
+      "doi_prefix":10.1162,
+      "publisher_by_doiprefix":"MIT Press - Journals",
+      "count":5
+   },
+   {
+      "doi_prefix":10.15184,
+      "publisher_by_doiprefix":"Antiquity Publications",
+      "count":5
+   },
+   {
+      "doi_prefix":10.1037,
+      "publisher_by_doiprefix":"American Psychological Association (APA)",
+      "count":5
+   },
+   {
+      "doi_prefix":10.14231,
+      "publisher_by_doiprefix":"Foundation Compositio Mathematica",
+      "count":5
+   },
+   {
+      "doi_prefix":10.1215,
+      "publisher_by_doiprefix":"Duke University Press",
+      "count":5
+   },
+   {
+      "doi_prefix":10.3928,
+      "publisher_by_doiprefix":"SLACK, Inc.",
+      "count":5
+   },
+   {
+      "doi_prefix":10.2337,
+      "publisher_by_doiprefix":"American Diabetes Association",
+      "count":5
+   },
+   {
+      "doi_prefix":10.7567,
+      "publisher_by_doiprefix":"Japan Society of Applied Physics",
+      "count":5
+   },
+   {
+      "doi_prefix":10.5334,
+      "publisher_by_doiprefix":"Ubiquity Press, Ltd.",
+      "count":5
+   },
+   {
+      "doi_prefix":10.1302,
+      "publisher_by_doiprefix":"British Editorial Society of Bone & Joint Surgery",
+      "count":5
+   },
+   {
+      "doi_prefix":10.1084,
+      "publisher_by_doiprefix":"Rockefeller University Press",
+      "count":5
+   },
+   {
+      "doi_prefix":10.26615,
+      "publisher_by_doiprefix":"Assoc. for Computational Linguistics Bulgaria",
+      "count":5
+   },
+   {
+      "doi_prefix":10.7717,
+      "publisher_by_doiprefix":"PeerJ",
+      "count":5
+   },
+   {
+      "doi_prefix":10.4267,
+      "publisher_by_doiprefix":"INIST-CNRS",
+      "count":4
+   },
+   {
+      "doi_prefix":10.1075,
+      "publisher_by_doiprefix":"John Benjamins Publishing Company",
+      "count":4
+   },
+   {
+      "doi_prefix":10.1183,
+      "publisher_by_doiprefix":"European Respiratory Society (ERS)",
+      "count":4
+   },
+   {
+      "doi_prefix":10.3897,
+      "publisher_by_doiprefix":"Pensoft Publishers",
+      "count":4
+   },
+   {
+      "doi_prefix":10.5038,
+      "publisher_by_doiprefix":"University of South Florida Libraries",
+      "count":4
+   },
+   {
+      "doi_prefix":10.4208,
+      "publisher_by_doiprefix":"Global Science Press",
+      "count":4
+   },
+   {
+      "doi_prefix":10.1121,
+      "publisher_by_doiprefix":"Acoustical Society of America (ASA)",
+      "count":4
+   },
+   {
+      "doi_prefix":10.1681,
+      "publisher_by_doiprefix":"American Society of Nephrology (ASN)",
+      "count":4
+   },
+   {
+      "doi_prefix":10.3354,
+      "publisher_by_doiprefix":"Inter-Research Science Center",
+      "count":4
+   },
+   {
+      "doi_prefix":10.2528,
+      "publisher_by_doiprefix":"The Electromagnetics Academy",
+      "count":4
+   },
+   {
+      "doi_prefix":10.1245,
+      "publisher_by_doiprefix":"Springer Science and Business Media LLC",
+      "count":4
+   },
+   {
+      "doi_prefix":10.2514,
+      "publisher_by_doiprefix":"American Institute of Aeronautics and Astronautics (AIAA)",
+      "count":4
+   },
+   {
+      "doi_prefix":10.2967,
+      "publisher_by_doiprefix":"Society of Nuclear Medicine",
+      "count":4
+   },
+   {
+      "doi_prefix":10.24963,
+      "publisher_by_doiprefix":"International Joint Conferences on Artificial Intelligence",
+      "count":4
+   },
+   {
+      "doi_prefix":10.12688,
+      "publisher_by_doiprefix":"F1000 Research Ltd",
+      "count":4
+   },
+   {
+      "doi_prefix":10.2215,
+      "publisher_by_doiprefix":"American Society of Nephrology (ASN)",
+      "count":4
+   },
+   {
+      "doi_prefix":10.37725,
+      "publisher_by_doiprefix":"Association Internationale de management strategique (AIMS)",
+      "count":3
+   },
+   {
+      "doi_prefix":10.3726,
+      "publisher_by_doiprefix":"Peter Lang, International Academic Publishers",
+      "count":3
+   },
+   {
+      "doi_prefix":10.4103,
+      "publisher_by_doiprefix":"Medknow",
+      "count":3
+   },
+   {
+      "doi_prefix":10.4155,
+      "publisher_by_doiprefix":"Future Science Ltd",
+      "count":3
+   },
+   {
+      "doi_prefix":10.2113,
+      "publisher_by_doiprefix":"GeoScienceWorld",
+      "count":3
+   },
+   {
+      "doi_prefix":10.2106,
+      "publisher_by_doiprefix":"Ovid Technologies (Wolters Kluwer Health)",
+      "count":3
+   },
+   {
+      "doi_prefix":10.22331,
+      "publisher_by_doiprefix":"Verein zur Forderung des Open Access Publizierens in den Quantenwissenschaften",
+      "count":3
+   },
+   {
+      "doi_prefix":10.4337,
+      "publisher_by_doiprefix":"Edward Elgar Publishing",
+      "count":3
+   },
+   {
+      "doi_prefix":10.4049,
+      "publisher_by_doiprefix":"The American Association of Immunologists",
+      "count":3
+   },
+   {
+      "doi_prefix":10.25088,
+      "publisher_by_doiprefix":"Wolfram Research, Inc.",
+      "count":3
+   },
+   {
+      "doi_prefix":10.1056,
+      "publisher_by_doiprefix":"Massachusetts Medical Society",
+      "count":3
+   },
+   {
+      "doi_prefix":10.24187,
+      "publisher_by_doiprefix":"Institut National de la Statistique et des Etudes Economiques (INSEE)",
+      "count":3
+   },
+   {
+      "doi_prefix":10.5114,
+      "publisher_by_doiprefix":"Termedia Sp. z.o.o.",
+      "count":3
+   },
+   {
+      "doi_prefix":10.1353,
+      "publisher_by_doiprefix":"Project Muse",
+      "count":3
+   },
+   {
+      "doi_prefix":10.5381,
+      "publisher_by_doiprefix":"AITO - Association Internationale pour les Technologies Objets",
+      "count":3
+   },
+   {
+      "doi_prefix":10.11646,
+      "publisher_by_doiprefix":"Magnolia Press",
+      "count":3
+   },
+   {
+      "doi_prefix":10.1149,
+      "publisher_by_doiprefix":"The Electrochemical Society",
+      "count":3
+   },
+   {
+      "doi_prefix":10.1116,
+      "publisher_by_doiprefix":"American Vacuum Society",
+      "count":3
+   },
+   {
+      "doi_prefix":10.1166,
+      "publisher_by_doiprefix":"American Scientific Publishers",
+      "count":3
+   },
+   {
+      "doi_prefix":10.1556,
+      "publisher_by_doiprefix":"Akademiai Kiado Zrt.",
+      "count":3
+   },
+   {
+      "doi_prefix":10.1557,
+      "publisher_by_doiprefix":"Springer Science and Business Media LLC",
+      "count":3
+   },
+   {
+      "doi_prefix":10.2298,
+      "publisher_by_doiprefix":"National Library of Serbia",
+      "count":2
+   },
+   {
+      "doi_prefix":10.5547,
+      "publisher_by_doiprefix":"International Association for Energy Economics (IAEE)",
+      "count":2
+   },
+   {
+      "doi_prefix":10.1091,
+      "publisher_by_doiprefix":"American Society for Cell Biology (ASCB)",
+      "count":2
+   },
+   {
+      "doi_prefix":10.22323,
+      "publisher_by_doiprefix":"Sissa Medialab Srl",
+      "count":2
+   },
+   {
+      "doi_prefix":10.14321,
+      "publisher_by_doiprefix":"Michigan State University Press",
+      "count":2
+   },
+   {
+      "doi_prefix":10.33594,
+      "publisher_by_doiprefix":"Cell Physiol Biochem Press GmbH and Co KG",
+      "count":2
+   },
+   {
+      "doi_prefix":10.1175,
+      "publisher_by_doiprefix":"American Meteorological Society",
+      "count":2
+   },
+   {
+      "doi_prefix":10.3892,
+      "publisher_by_doiprefix":"Spandidos Publications",
+      "count":2
+   },
+   {
+      "doi_prefix":10.4187,
+      "publisher_by_doiprefix":"Daedalus Enterprises",
+      "count":2
+   },
+   {
+      "doi_prefix":10.1085,
+      "publisher_by_doiprefix":"Rockefeller University Press",
+      "count":2
+   },
+   {
+      "doi_prefix":10.2352,
+      "publisher_by_doiprefix":"Society for Imaging Science & Technology",
+      "count":2
+   },
+   {
+      "doi_prefix":10.5603,
+      "publisher_by_doiprefix":"VM Media SP. zo.o VM Group SK",
+      "count":2
+   },
+   {
+      "doi_prefix":10.1061,
+      "publisher_by_doiprefix":"American Society of Civil Engineers (ASCE)",
+      "count":2
+   },
+   {
+      "doi_prefix":10.13164,
+      "publisher_by_doiprefix":"Brno University of Technology",
+      "count":2
+   },
+   {
+      "doi_prefix":10.4064,
+      "publisher_by_doiprefix":"Institute of Mathematics, Polish Academy of Sciences",
+      "count":2
+   },
+   {
+      "doi_prefix":10.1306,
+      "publisher_by_doiprefix":"American Association of Petroleum Geologists AAPG\/Datapages",
+      "count":2
+   },
+   {
+      "doi_prefix":10.12989,
+      "publisher_by_doiprefix":"Techno-Press",
+      "count":2
+   },
+   {
+      "doi_prefix":10.3201,
+      "publisher_by_doiprefix":"Centers for Disease Control and Prevention (CDC)",
+      "count":2
+   },
+   {
+      "doi_prefix":10.1099,
+      "publisher_by_doiprefix":"Microbiology Society",
+      "count":2
+   },
+   {
+      "doi_prefix":10.1261,
+      "publisher_by_doiprefix":"Cold Spring Harbor Laboratory",
+      "count":2
+   },
+   {
+      "doi_prefix":10.26698,
+      "publisher_by_doiprefix":"Instituto de Astrofisica de Canarias",
+      "count":2
+   },
+   {
+      "doi_prefix":10.5486,
+      "publisher_by_doiprefix":"University of Debrecen\/ Debreceni Egyetem",
+      "count":2
+   },
+   {
+      "doi_prefix":10.1086,
+      "publisher_by_doiprefix":"University of Chicago Press",
+      "count":2
+   },
+   {
+      "doi_prefix":10.21638,
+      "publisher_by_doiprefix":"Saint Petersburg State University",
+      "count":2
+   },
+   {
+      "doi_prefix":10.1563,
+      "publisher_by_doiprefix":"American Academy of Implant Dentistry",
+      "count":2
+   },
+   {
+      "doi_prefix":10.1615,
+      "publisher_by_doiprefix":"Begell House",
+      "count":2
+   },
+   {
+      "doi_prefix":10.3842,
+      "publisher_by_doiprefix":"SIGMA (Symmetry, Integrability and Geometry: Methods and Application)",
+      "count":2
+   },
+   {
+      "doi_prefix":10.17323,
+      "publisher_by_doiprefix":"National Research University, Higher School of Economics (HSE)",
+      "count":2
+   },
+   {
+      "doi_prefix":10.7872,
+      "publisher_by_doiprefix":"BioOne",
+      "count":2
+   },
+   {
+      "doi_prefix":10.5005,
+      "publisher_by_doiprefix":"Jaypee Brothers Medical Publishing",
+      "count":2
+   },
+   {
+      "doi_prefix":10.18293,
+      "publisher_by_doiprefix":"KSI Research Inc.",
+      "count":2
+   },
+   {
+      "doi_prefix":10.18564,
+      "publisher_by_doiprefix":"Journal of Artificial Societies and Social Simulation",
+      "count":2
+   },
+   {
+      "doi_prefix":10.3762,
+      "publisher_by_doiprefix":"Beilstein Institut",
+      "count":2
+   },
+   {
+      "doi_prefix":10.18653,
+      "publisher_by_doiprefix":"Association for Computational Linguistics (ACL)",
+      "count":2
+   },
+   {
+      "doi_prefix":10.1119,
+      "publisher_by_doiprefix":"American Association of Physics Teachers (AAPT)",
+      "count":2
+   },
+   {
+      "doi_prefix":10.46298,
+      "publisher_by_doiprefix":"Centre pour la Communication Scientifique Directe (CCSD)",
+      "count":2
+   },
+   {
+      "doi_prefix":10.3139,
+      "publisher_by_doiprefix":"Carl Hanser Verlag",
+      "count":2
+   },
+   {
+      "doi_prefix":10.11613,
+      "publisher_by_doiprefix":"Croatian Society for Medical Biochemistry and Laboratory Medicine",
+      "count":2
+   },
+   {
+      "doi_prefix":10.1027,
+      "publisher_by_doiprefix":"Hogrefe Publishing Group",
+      "count":2
+   },
+   {
+      "doi_prefix":10.5427,
+      "publisher_by_doiprefix":"Journal of Singularities",
+      "count":2
+   },
+   {
+      "doi_prefix":10.21136,
+      "publisher_by_doiprefix":"Institute of Mathematics, Czech Academy of Sciences",
+      "count":2
+   },
+   {
+      "doi_prefix":10.35812,
+      "publisher_by_doiprefix":"Institutul de Chimie Macromoleculara Petru Poni",
+      "count":2
+   },
+   {
+      "doi_prefix":10.4269,
+      "publisher_by_doiprefix":"American Society of Tropical Medicine and Hygiene",
+      "count":2
+   },
+   {
+      "doi_prefix":10.1553,
+      "publisher_by_doiprefix":"Osterreichische Akademie der Wissenschaften",
+      "count":2
+   },
+   {
+      "doi_prefix":10.3748,
+      "publisher_by_doiprefix":"Baishideng Publishing Group Inc.",
+      "count":2
+   },
+   {
+      "doi_prefix":10.7752,
+      "publisher_by_doiprefix":"Physical Education and Sport Faculty",
+      "count":2
+   },
+   {
+      "doi_prefix":10.9738,
+      "publisher_by_doiprefix":"International College of Surgeons",
+      "count":1
+   },
+   {
+      "doi_prefix":10.4007,
+      "publisher_by_doiprefix":"Annals of Mathematics",
+      "count":1
+   },
+   {
+      "doi_prefix":10.3998,
+      "publisher_by_doiprefix":"University of Michigan Library",
+      "count":1
+   },
+   {
+      "doi_prefix":10.7566,
+      "publisher_by_doiprefix":"Physical Society of Japan",
+      "count":1
+   },
+   {
+      "doi_prefix":10.7494,
+      "publisher_by_doiprefix":"AGHU University of Science and Technology Press",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1024,
+      "publisher_by_doiprefix":"Hogrefe Publishing Group",
+      "count":1
+   },
+   {
+      "doi_prefix":10.3986,
+      "publisher_by_doiprefix":"The Research Center of the Slovenian Academy of Sciences and Arts \/ Znanstvenoraziskovalni center Slovenske akademije znanosti in umetnosti (ZRC SAZU)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.3899,
+      "publisher_by_doiprefix":"The Journal of Rheumatology",
+      "count":1
+   },
+   {
+      "doi_prefix":10.7202,
+      "publisher_by_doiprefix":"Consortium Erudit",
+      "count":1
+   },
+   {
+      "doi_prefix":10.7712,
+      "publisher_by_doiprefix":"ECCOMAS",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1026,
+      "publisher_by_doiprefix":"Hogrefe Publishing Group",
+      "count":1
+   },
+   {
+      "doi_prefix":10.4025,
+      "publisher_by_doiprefix":"Universidade Estadual de Maringa",
+      "count":1
+   },
+   {
+      "doi_prefix":10.7151,
+      "publisher_by_doiprefix":"Faculty of Mathematics, Computer Science and Econometrics, University of Zielona Gora",
+      "count":1
+   },
+   {
+      "doi_prefix":10.5102,
+      "publisher_by_doiprefix":"Centro de Ensino Unificado de Brasilia",
+      "count":1
+   },
+   {
+      "doi_prefix":10.5051,
+      "publisher_by_doiprefix":"Korean Academy of Periodontology",
+      "count":1
+   },
+   {
+      "doi_prefix":10.5252,
+      "publisher_by_doiprefix":"Museum National d'Histoire Naturelle, Paris, France",
+      "count":1
+   },
+   {
+      "doi_prefix":10.5267,
+      "publisher_by_doiprefix":"Growing Science",
+      "count":1
+   },
+   {
+      "doi_prefix":10.5301,
+      "publisher_by_doiprefix":"SAGE Publications",
+      "count":1
+   },
+   {
+      "doi_prefix":10.4467,
+      "publisher_by_doiprefix":"Uniwersytet Jagiellonski - Wydawnictwo Uniwersytetu Jagiellonskiego",
+      "count":1
+   },
+   {
+      "doi_prefix":10.5306,
+      "publisher_by_doiprefix":"Baishideng Publishing Group Inc.",
+      "count":1
+   },
+   {
+      "doi_prefix":10.4317,
+      "publisher_by_doiprefix":"Medicina Oral, S.L.",
+      "count":1
+   },
+   {
+      "doi_prefix":10.4312,
+      "publisher_by_doiprefix":"University of Ljubljana",
+      "count":1
+   },
+   {
+      "doi_prefix":10.4254,
+      "publisher_by_doiprefix":"Baishideng Publishing Group Inc.",
+      "count":1
+   },
+   {
+      "doi_prefix":10.5373,
+      "publisher_by_doiprefix":"Institute of Advanced Scientific Research",
+      "count":1
+   },
+   {
+      "doi_prefix":10.5414,
+      "publisher_by_doiprefix":"Dustri-Verlgag Dr. Karl Feistle",
+      "count":1
+   },
+   {
+      "doi_prefix":10.5565,
+      "publisher_by_doiprefix":"Universitat Autonoma de Barcelona",
+      "count":1
+   },
+   {
+      "doi_prefix":10.4149,
+      "publisher_by_doiprefix":"AEPress, s.r.o.",
+      "count":1
+   },
+   {
+      "doi_prefix":10.4134,
+      "publisher_by_doiprefix":"The Korean Mathematical Society",
+      "count":1
+   },
+   {
+      "doi_prefix":10.5585,
+      "publisher_by_doiprefix":"University Nove de Julho",
+      "count":1
+   },
+   {
+      "doi_prefix":10.5601,
+      "publisher_by_doiprefix":"Polish Society for Magnesium Research",
+      "count":1
+   },
+   {
+      "doi_prefix":10.4081,
+      "publisher_by_doiprefix":"PAGEPress Publications",
+      "count":1
+   },
+   {
+      "doi_prefix":10.5751,
+      "publisher_by_doiprefix":"Resilience Alliance, Inc.",
+      "count":1
+   },
+   {
+      "doi_prefix":10.5755,
+      "publisher_by_doiprefix":"Kaunas University of Technology (KTU)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.5937,
+      "publisher_by_doiprefix":"Centre for Evaluation in Education and Science (CEON\/CEES)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.5957,
+      "publisher_by_doiprefix":"The Society of Naval Architects and Marine Engineers",
+      "count":1
+   },
+   {
+      "doi_prefix":10.4048,
+      "publisher_by_doiprefix":"Korean Breast Cancer Society",
+      "count":1
+   },
+   {
+      "doi_prefix":10.6018,
+      "publisher_by_doiprefix":"Servicio de Publicaciones de la Universidad de Murcia",
+      "count":1
+   },
+   {
+      "doi_prefix":10.7146,
+      "publisher_by_doiprefix":"Det Kgl. Bibliotek\/Royal Danish Library",
+      "count":1
+   },
+   {
+      "doi_prefix":10.4074,
+      "publisher_by_doiprefix":"Editions NecPlus",
+      "count":1
+   },
+   {
+      "doi_prefix":10.22364,
+      "publisher_by_doiprefix":"University of Latvia",
+      "count":1
+   },
+   {
+      "doi_prefix":10.3846,
+      "publisher_by_doiprefix":"Vilnius Gediminas Technical University",
+      "count":1
+   },
+   {
+      "doi_prefix":10.15407,
+      "publisher_by_doiprefix":"National Academy of Sciences of Ukraine (Co. LTD Ukrinformnauka)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1332,
+      "publisher_by_doiprefix":"Bristol University Press",
+      "count":1
+   },
+   {
+      "doi_prefix":10.14201,
+      "publisher_by_doiprefix":"Ediciones Universidad de Salamanca",
+      "count":1
+   },
+   {
+      "doi_prefix":10.14254,
+      "publisher_by_doiprefix":"Centre of Sociological Research, NGO",
+      "count":1
+   },
+   {
+      "doi_prefix":10.14393,
+      "publisher_by_doiprefix":"EDUFU - Editora da Universidade Federal de Uberlandia",
+      "count":1
+   },
+   {
+      "doi_prefix":10.15171,
+      "publisher_by_doiprefix":"International Society for Phytocosmetic Sciences",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1519,
+      "publisher_by_doiprefix":"Ovid Technologies (Wolters Kluwer Health)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.15326,
+      "publisher_by_doiprefix":"COPD Foundation",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1542,
+      "publisher_by_doiprefix":"American Academy of Pediatrics (AAP)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.3828,
+      "publisher_by_doiprefix":"Liverpool University Press",
+      "count":1
+   },
+   {
+      "doi_prefix":10.15448,
+      "publisher_by_doiprefix":"EDIPUCRS",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1558,
+      "publisher_by_doiprefix":"Equinox Publishing",
+      "count":1
+   },
+   {
+      "doi_prefix":10.15609,
+      "publisher_by_doiprefix":"GENES",
+      "count":1
+   },
+   {
+      "doi_prefix":10.15698,
+      "publisher_by_doiprefix":"Shared Science Publishers OG",
+      "count":1
+   },
+   {
+      "doi_prefix":10.15766,
+      "publisher_by_doiprefix":"Association of American Medical Colleges",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1613,
+      "publisher_by_doiprefix":"AI Access Foundation",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1634,
+      "publisher_by_doiprefix":"Wiley",
+      "count":1
+   },
+   {
+      "doi_prefix":10.13182,
+      "publisher_by_doiprefix":"American Nuclear Society",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1307,
+      "publisher_by_doiprefix":"Michigan Mathematical Journal",
+      "count":1
+   },
+   {
+      "doi_prefix":10.12997,
+      "publisher_by_doiprefix":"Korean Society of Lipidology and Atherosclerosis",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1289,
+      "publisher_by_doiprefix":"Environmental Health Perspectives",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1139,
+      "publisher_by_doiprefix":"Canadian Science Publishing",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1148,
+      "publisher_by_doiprefix":"Radiological Society of North America (RSNA)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.11607,
+      "publisher_by_doiprefix":"Quintessence Publishing",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1115,
+      "publisher_by_doiprefix":"ASME International",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1165,
+      "publisher_by_doiprefix":"American Thoracic Society",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1167,
+      "publisher_by_doiprefix":"Association for Research in Vision and Ophthalmology (ARVO)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1107,
+      "publisher_by_doiprefix":"International Union of Crystallography (IUCr)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1193,
+      "publisher_by_doiprefix":"Earthquake Engineering Research Institute",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1194,
+      "publisher_by_doiprefix":"American Society for Biochemistry & Molecular Biology (ASBMB)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1253,
+      "publisher_by_doiprefix":"Japanese Circulation Society",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1257,
+      "publisher_by_doiprefix":"American Economic Association",
+      "count":1
+   },
+   {
+      "doi_prefix":10.12659,
+      "publisher_by_doiprefix":"International Scientific Information, Inc.",
+      "count":1
+   },
+   {
+      "doi_prefix":10.12693,
+      "publisher_by_doiprefix":"Institute of Physics, Polish Academy of Sciences",
+      "count":1
+   },
+   {
+      "doi_prefix":10.12738,
+      "publisher_by_doiprefix":"Egitim Danismanligi ve Arastirmalari (EDAM)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.12871,
+      "publisher_by_doiprefix":"Pisa University Press",
+      "count":1
+   },
+   {
+      "doi_prefix":10.16995,
+      "publisher_by_doiprefix":"Open Library of the Humanities",
+      "count":1
+   },
+   {
+      "doi_prefix":10.17083,
+      "publisher_by_doiprefix":"Serious Games Society",
+      "count":1
+   },
+   {
+      "doi_prefix":10.17239,
+      "publisher_by_doiprefix":"ARLE (International Associaton for Research in L1 Education)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.22394,
+      "publisher_by_doiprefix":"The Russian Presidential Academy of National Economy and Public Administration",
+      "count":1
+   },
+   {
+      "doi_prefix":10.2343,
+      "publisher_by_doiprefix":"Geochemical Society of Japan",
+      "count":1
+   },
+   {
+      "doi_prefix":10.2495,
+      "publisher_by_doiprefix":"WITPRESS LTD.",
+      "count":1
+   },
+   {
+      "doi_prefix":10.25046,
+      "publisher_by_doiprefix":"ASTES Journal",
+      "count":1
+   },
+   {
+      "doi_prefix":10.2519,
+      "publisher_by_doiprefix":"Journal of Orthopaedic & Sports Physical Therapy (JOSPT)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.25518,
+      "publisher_by_doiprefix":"University of Liege",
+      "count":1
+   },
+   {
+      "doi_prefix":10.30802,
+      "publisher_by_doiprefix":"American Association for Laboratory Animal Science",
+      "count":1
+   },
+   {
+      "doi_prefix":10.3114,
+      "publisher_by_doiprefix":"Westerdijk Fungal Biodiversity Institute",
+      "count":1
+   },
+   {
+      "doi_prefix":10.3171,
+      "publisher_by_doiprefix":"Journal of Neurosurgery Publishing Group (JNSPG)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.3197,
+      "publisher_by_doiprefix":"White Horse Press",
+      "count":1
+   },
+   {
+      "doi_prefix":10.32582,
+      "publisher_by_doiprefix":"Institute of Oceanography and Fisheries",
+      "count":1
+   },
+   {
+      "doi_prefix":10.32615,
+      "publisher_by_doiprefix":"Institute of Experimental Botany",
+      "count":1
+   },
+   {
+      "doi_prefix":10.33166,
+      "publisher_by_doiprefix":"International Association for Educators and Researchers (IAER)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.34172,
+      "publisher_by_doiprefix":"Maad Rayan Publishing Company",
+      "count":1
+   },
+   {
+      "doi_prefix":10.35848,
+      "publisher_by_doiprefix":"IOP Publishing",
+      "count":1
+   },
+   {
+      "doi_prefix":10.3727,
+      "publisher_by_doiprefix":"Cognizant, LLC",
+      "count":1
+   },
+   {
+      "doi_prefix":10.2334,
+      "publisher_by_doiprefix":"Nihon University School of Dentistry",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1124,
+      "publisher_by_doiprefix":"American Society for Pharmacology & Experimental Therapeutics (ASPET)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.17743,
+      "publisher_by_doiprefix":"Audio Engineering Society",
+      "count":1
+   },
+   {
+      "doi_prefix":10.2217,
+      "publisher_by_doiprefix":"Future Medicine Ltd",
+      "count":1
+   },
+   {
+      "doi_prefix":10.17746,
+      "publisher_by_doiprefix":"Institute of Archaeology and Ethnography SB RAS",
+      "count":1
+   },
+   {
+      "doi_prefix":10.19182,
+      "publisher_by_doiprefix":"CIRAD (Centre de Cooperation Internationale en Recherche Agronomique Pour le Developpement)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.19256,
+      "publisher_by_doiprefix":"Edra SpA",
+      "count":1
+   },
+   {
+      "doi_prefix":10.21014,
+      "publisher_by_doiprefix":"IMEKO International Measurement Confederation",
+      "count":1
+   },
+   {
+      "doi_prefix":10.2112,
+      "publisher_by_doiprefix":"Coastal Education and Research Foundation",
+      "count":1
+   },
+   {
+      "doi_prefix":10.21162,
+      "publisher_by_doiprefix":"Pakistan Journal of Agricultural Sciences",
+      "count":1
+   },
+   {
+      "doi_prefix":10.2118,
+      "publisher_by_doiprefix":"Society of Petroleum Engineers (SPE)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.2119,
+      "publisher_by_doiprefix":"The Feinstein Institute for Medical Research (North Shore LIJ Research Institute)",
+      "count":1
+   },
+   {
+      "doi_prefix":10.21307,
+      "publisher_by_doiprefix":"Exeley, Inc.",
+      "count":1
+   },
+   {
+      "doi_prefix":10.2139,
+      "publisher_by_doiprefix":"Elsevier BV",
+      "count":1
+   },
+   {
+      "doi_prefix":10.21615,
+      "publisher_by_doiprefix":"Universidad CES",
+      "count":1
+   },
+   {
+      "doi_prefix":10.2166,
+      "publisher_by_doiprefix":"IWA Publishing",
+      "count":1
+   },
+   {
+      "doi_prefix":10.1071,
+      "publisher_by_doiprefix":"CSIRO Publishing",
+      "count":1
+   },
+   {
+      "doi_prefix":10.21873,
+      "publisher_by_doiprefix":"Anticancer Research USA Inc.",
+      "count":1
+   },
+   {
+      "doi_prefix":10.2197,
+      "publisher_by_doiprefix":"Information Processing Society of Japan",
+      "count":1
+   },
+   {
+      "doi_prefix":10.9771,
+      "publisher_by_doiprefix":"Universidade Federal da Bahia",
+      "count":1
+   }
+]

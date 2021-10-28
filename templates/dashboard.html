@@ -5,7 +5,7 @@
         <h3>Tableau de bord des publications (2016-2021)</h3>
         <div class="uk-grid-divider" uk-grid>
             <div>
-        <div class="uk-alert-primary" uk-alert>
+        <div class="uk-alert-success" uk-alert>
         <h5><b>Périmètre</b> : {{names}}</h5>
         </div>
             </div>
@@ -18,6 +18,8 @@
         <input id="source" type="hidden" value="{{source}}" />
         {% if source == "structures" %}
         <input id="ids" type="hidden" value="{{ids}}" />
+        {% elif source == "publishers"%}
+        <input id="prefixs" type="hidden" value="{{prefixs}}" />
         {% endif %}
 
         <ul class="uk-tab" data-uk-tab="{connect:'#my-id'}">
@@ -28,37 +30,6 @@
           </ul>
 
           <ul id="my-id" class="uk-switcher uk-margin">
-            <!--dasboard 
-            <li><a href="#" id="autoplayer" data-uk-switcher-item="next"></a>
-                {%for (plot,f,title) in zip(dashboard_plots,dashboard_functions,dashboard_titles)%} 
-                <div class="uk-section uk-section-muted">
-                    <div class="uk-text-center" uk-grid>
-                        <div class="uk-card uk-width-expand@m">
-                            <div class="uk-card-header">
-                                <h4 class="uk-card-title">{{title}}</h4>
-                            </div>
-                            <div class="uk-card-body">
-                                <div class="chart" id="dashboardgraph{{loop.index0}}">
-                                </div>
-                                <div id="displaydashboarddata{{loop.index0}}"></div>
-                            </div>
-                        </div>
-                        <div class="uk-width-auto@m">
-                            <div class="uk-card uk-card-hover uk-card-default uk-card-body">
-                                <a href="/api/publications?view={{f}}" target="_blanck">Voir les données (API)</a>
-                            </div>
-                          </div> 
-                    </div>
-                    <script type="text/javascript">
-                        var img_png = d3.select('#displaydashboarddata{{loop.index0}}');
-                        var graphs = {{plot|safe}};
-                        var layout = {width: 900,height: 500,margin: { l:300 },legend: {orientation:'h',side:'top'},uniformtext_minsize:10,xaxes:{categoryorder:'category ascending',type:'category'},yaxes:{automargin:true}};
-                        Plotly.plot('dashboardgraph{{loop.index0}}',graphs.data,layout || {});
-                        </script>
-                     </div>
-                    <hr class="uk-divider-icon">
-                {%endfor%}
-              </li>-->
             <li><!--observatoire OA-->
                 <div class="uk-section uk-section-muted">
                     <div class="uk-text-center" uk-grid>
@@ -76,6 +47,8 @@
                         <div class="uk-card uk-card-hover uk-card-default uk-card-body">
                             {% if source == "structures" %}
                             <a href="/api/publications?view={{dashboard_functions[0]}}&ids={{ids}}" target="_blanck">Voir les données (accès par API)</a>
+                            {% elif source == "publishers"%}
+                            <a href="/api/publications?view={{dashboard_functions[0]}}&prefixs={{prefixs}}" target="_blanck">Voir les données (accès par API)</a>
                             {% else %}
                             <a href="/api/publications?view={{dashboard_functions[0]}}" target="_blanck">Voir les données (accès par API)</a>
                             {% endif %}
@@ -107,6 +80,8 @@
                         <div class="uk-card uk-card-hover uk-card-default uk-card-body">
                             {% if source == "structures" %}
                             <a href="/api/publications?view={{f}}&ids={{ids}}" target="_blanck">Voir les données (accès par API)</a>
+                            {% elif source == "publishers"%}
+                            <a href="/api/publications?view={{f}}&prefixs={{prefixs}}" target="_blanck">Voir les données (accès par API)</a>
                             {% else %}
                             <a href="/api/publications?view={{f}}" target="_blanck">Voir les données (accès par API)</a>
                             {% endif %}

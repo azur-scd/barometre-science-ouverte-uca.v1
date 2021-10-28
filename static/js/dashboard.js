@@ -4,9 +4,14 @@ if ($("#source").val() == "uca"){
     console.log("uca")
     url_datagrid = "/api/publications"
 }
+else if ($("#source").val() == "structures") {
+  url_datagrid = "/api/publications?ids=" + $("#ids").val()
+}
+else if ($("#source").val() == "publishers") {
+  url_datagrid = "/api/publications?prefixs=" + $("#prefixs").val()
+}
 else {
-    console.log($("#source").val())
-    url_datagrid = "/api/publications?ids=" + $("#ids").val()
+    console.log("error : no source")
 }
 var store = new DevExpress.data.CustomStore({
   key: "doi",
@@ -148,9 +153,14 @@ $("#gridContainer").dxDataGrid({
       },
       {
           dataField: "oa_repo_normalized",
-          caption: "Hébergement (plateformes)",
+          caption: "Hébergement (types)",
           width: 150,
       },
+      {
+        dataField: "oa_host_domain",
+        caption: "Hébergement (plateformes)",
+        width: 150,
+    },
       {caption: "Données Crossref",
        columns:[
         {
