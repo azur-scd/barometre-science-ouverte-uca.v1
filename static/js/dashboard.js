@@ -130,14 +130,18 @@ $("#gridContainer").dxDataGrid({
       }, {
           dataField: "journal_name",
           caption: "Revue",
-          width: 150,
-          visible: false
+          width: 150
       }, {
           dataField: "journal_issn_l",
           caption: "Revue ISSN",
           width: 100,
           visible: false
       },
+      {
+        dataField: "journal_is_in_doaj",
+        caption: "Revue dans DOAJ",
+        width: 100
+    },
        {
           dataField: "is_oa_normalized",
           caption: "OA",
