@@ -1,9 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from flask import Flask, jsonify, abort, render_template,url_for,request
+from flask import Flask, jsonify, abort, render_template,url_for,request,session, redirect, send_from_directory
 from flask_caching import Cache
 from flask_cors import CORS, cross_origin
+
+from flask import Response, Blueprint
+from werkzeug.serving import run_simple
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
+import datetime
+
 import pandas as pd
 import requests
 import plotly
@@ -24,6 +30,29 @@ import itertools
 import networkx as nx
 from networkx.readwrite import json_graph
 
+class ReverseProxied(object):
+
+    def __init__(self, app, script_name=None, scheme=None, server=None):
+        self.app = app
+        self.script_name = script_name
+        self.scheme = scheme
+        self.server = server
+
+    def __call__(self, environ, start_response):
+        script_name = environ.get('HTTP_X_SCRIPT_NAME', '') or self.script_name
+        if script_name:
+            environ['SCRIPT_NAME'] = script_name
+            path_info = environ['PATH_INFO']
+            if path_info.startswith(script_name):
+                environ['PATH_INFO'] = path_info[len(script_name):]
+        scheme = environ.get('HTTP_X_SCHEME', '') or self.scheme
+        if scheme:
+            environ['wsgi.url_scheme'] = scheme
+        server = environ.get('HTTP_X_FORWARDED_SERVER', '') or self.server
+        if server:
+            environ['HTTP_HOST'] = server
+        return self.app(environ, start_response)
+
 cache = Cache(config={'CACHE_TYPE': 'simple'})
 
 app = Flask(__name__)
@@ -35,6 +64,7 @@ port = app.config['PORT']
 
 #util for using zip in html template
 app.jinja_env.globals.update(zip=zip)
+#app.wsgi_app = ReverseProxied(app.wsgi_app, script_name='/uca-oa-barometre')
 
 ## Variables
 snapshot1 = "20201130"

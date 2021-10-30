@@ -5,7 +5,7 @@
 Le dockerfile permet d'assembler l'application dans une image Docker
 
 ```
-docker built -t IMAGE_NAME:TAG .
+docker build -t IMAGE_NAME:TAG .
 ```
 
 Une fois l'image buildée, on peut lancer l'image en tant que container Docker

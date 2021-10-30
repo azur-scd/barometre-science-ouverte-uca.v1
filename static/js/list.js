@@ -29,10 +29,10 @@ $("#btn_pub").dxButton({
     var selectedRowKeys = dataGrid.getSelectedRowKeys()
     var selected2send = $.map(selectedRowKeys, function(value) {return value.doi_prefix}).join(",")
     window.open("/dashboard/publishers?prefixs="+selected2send, "_blank");
+    //window.open("{{url_for('dashboard',source = 'publishers', prefixs=selected2send}}", "_blank");    
   }
 })
 
-/*Unused : use flat json files instead
 var store_structures = new DevExpress.data.CustomStore({
   key: "id",
   load: function () {
@@ -46,7 +46,7 @@ var store_structures = new DevExpress.data.CustomStore({
 });
 
 var store_publishers = new DevExpress.data.CustomStore({
-  key: "publisher",
+  key: "doi_prefix",
   load: function () {
     return $.ajax({
       method: 'GET',
@@ -55,11 +55,11 @@ var store_publishers = new DevExpress.data.CustomStore({
       error : function(response) {console.log(response.statusText);}
   })					
           }      
-});*/
+});
 
 var treeList = $("#affDatagrid").dxTreeList({
-  dataSource: "/static/data/20210914/df_structures.json",
-  //or dataSource: store_structures,
+  //dataSource: "/static/data/20210914/df_structures.json",
+  dataSource: store_structures,
   keyExpr: "id",
   parentIdExpr: "parent_id",
   showRowLines: false,
@@ -142,8 +142,8 @@ searchPanel: {
 }).dxTreeList("instance");
 
 var dataGrid = $("#pubDatagrid").dxDataGrid({
-  dataSource: "/static/data/20210914/df_publishers.json",
-  //or dataSource: store_publishers,
+  //dataSource: "/static/data/20210914/df_publishers.json",
+  dataSource: store_publishers,
   keyExpr: "doi_prefix",
   showBorders: false,
   allowColumnResizing: true,
@@ -183,18 +183,5 @@ searchPanel: {
   {
     dataField: "count",
     caption: "Nombre de publications"
-  }],
-  onSelectionChanged: function(selectedItems) {
-    var data = selectedItems.selectedRowsData;
-    if(data.length > 0) {
-      console.log($.map(data, function(value) {return value.publisher;}).join(", "))
-      $("selectedItemKeys").text(
-          $.map(data, function(value) {
-                    return value.publisher;
-                }).join(", "));
-    }
-    else {
-      $("#selectedItemKeys").text("Nobody has been selected");
-    }
-}
+  }]
 }).dxDataGrid("instance");
