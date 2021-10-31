@@ -5,10 +5,10 @@ if ($("#source").val() == "uca"){
     url_datagrid = "/api/publications"
 }
 else if ($("#source").val() == "structures") {
-  url_datagrid = "/api/publications?ids=" + $("#ids").val()
+  url_datagrid = $("#url_subpath").val()+"/api/publications?ids=" + $("#ids").val()
 }
 else if ($("#source").val() == "publishers") {
-  url_datagrid = "/api/publications?prefixs=" + $("#prefixs").val()
+  url_datagrid = $("#url_subpath").val()+"/api/publications?prefixs=" + $("#prefixs").val()
 }
 else {
     console.log("error : no source")

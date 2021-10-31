@@ -17,8 +17,10 @@
         </div>
         <input id="source" type="hidden" value="{{source}}" />
         {% if source == "structures" %}
+        <input type="hidden" id="url_subpath" value="{{url_subpath}}" />
         <input id="ids" type="hidden" value="{{ids}}" />
         {% elif source == "publishers"%}
+        <input type="hidden" id="url_subpath" value="{{url_subpath}}" />
         <input id="prefixs" type="hidden" value="{{prefixs}}" />
         {% endif %}
 

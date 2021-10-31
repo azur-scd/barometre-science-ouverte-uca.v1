@@ -4,8 +4,8 @@ $("#btn_aff").dxButton({
    var selectedRowKeys = treeList.getSelectedRowKeys();
    var selected2send = Array.from(
     new Set(Array.from(getAllChildren(selectedRowKeys)))).filter(function(d){return d != 1 & d != 2 & d != 3}).join(",")
-    //window.open("/dashboard/structures?ids="+selected2send, "_blank");
-    window.open(Flask.url_for("dashboard", { "source": 'structures', 'ids': selected2send}), "_blank");   
+    window.open($("#url_subpath").val()+"/dashboard/structures?ids="+selected2send, "_blank");
+    //window.open(Flask.url_for("dashboard", { "source": 'structures', 'ids': selected2send}), "_blank");   
 }
 });
 function* getAllChildren(arr) {
@@ -26,19 +26,18 @@ $("#btn_pub").dxButton({
   text: "Get selection",
   onClick: ()=> {
     var selectedRowKeys = dataGrid.getSelectedRowKeys()
-    var selected2send = selectedRowKeys.map(function(value) {return value.doi_prefix}).join(",")
-    //window.open("/dashboard/publishers?prefixs="+selected2send, "_blank");
-    window.open(Flask.url_for("dashboard", { "source": 'publishers', 'prefixs': selected2send}), "_blank");   
+    var selected2send = selectedRowKeys.map(function(value) {return value}).join(",")
+    window.open($("#url_subpath").val()+"/dashboard/publishers?prefixs="+selected2send, "_blank");
+    //window.open(Flask.url_for("dashboard", { "source": 'publishers', 'prefixs': selected2send}), "_blank");   
   }
 })
 
-/*Unused dynamic datasource stores by api -> static files prefered
 var store_structures = new DevExpress.data.CustomStore({
   key: "id",
   load: function () {
     return $.ajax({
       method: 'GET',
-      url: "/api/structures/",
+      url: $("#url_subpath").val()+"/api/structures/",
       success: function (response) { return response.data;},
       error : function(response) {console.log(response.statusText);}
   })					
@@ -50,12 +49,12 @@ var store_publishers = new DevExpress.data.CustomStore({
   load: function () {
     return $.ajax({
       method: 'GET',
-      url: "/api/publishers",
+      url: $("#url_subpath").val()+"/api/publishers",
       success: function (response) { return response.data;},
       error : function(response) {console.log(response.statusText);}
   })					
           }      
-});*/
+});
 
 var treeList = $("#affDatagrid").dxTreeList({
   dataSource: Flask.url_for("static", {"filename": "data/20210914/df_structures.json"}),
@@ -131,19 +130,26 @@ searchPanel: {
             }
           }
       },
-     ,
   {
     dataField: "document-count-period",
     width: 80,
     sortOrder: "desc",
       }
   ],
+ /* onSelectionChanged: function(selectedItems) {
+    var data = selectedItems.selectedRowsData;
+    if(data.length > 0) {
+      var selected2send = Array.from(
+        new Set(Array.from(getAllChildren(data)))).filter(function(d){return d != 1 & d != 2 & d != 3}).join(",")
+      $('#btn_aff').attr("href", "{{ url_for('dashboard',source='structures',ids='"+selected2send+"'}}");
+    }
+},*/
   expandedRowKeys: [1, 2, 3]
 }).dxTreeList("instance");
 
 var dataGrid = $("#pubDatagrid").dxDataGrid({
-  dataSource: Flask.url_for("static", {"filename": "data/20210914/df_publishers.json"}),
-  //dataSource: store_publishers,
+  //dataSource: Flask.url_for("static", {"filename": "data/20210914/df_publishers.json"}),
+  dataSource: store_publishers,
   keyExpr: "doi_prefix",
   showBorders: false,
   allowColumnResizing: true,
@@ -183,5 +189,14 @@ searchPanel: {
   {
     dataField: "count",
     caption: "Nombre de publications"
-  }]
+  }],
+  /*onSelectionChanged: function(selectedItems) {
+    var data = selectedItems.selectedRowsData;
+    if(data.length > 0) {
+      var selected2send = $.map(data, function(value) {
+        return value.doi_prefix;
+      }).join(",")
+      $('#btn_pub').attr("href", "{{ url_for('dashboard',source='publishers',prefixs='"+selected2send+"')}}");
+    }
+}*/
 }).dxDataGrid("instance");

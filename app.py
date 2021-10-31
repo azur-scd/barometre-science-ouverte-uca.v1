@@ -61,9 +61,10 @@ CORS(app)
 app.config.from_object('config')
 port = app.config['PORT']
 host = app.config['HOST']
+url_subpath = app.config['URL_SUBPATH']
 snapshot = app.config['DATA_SNAPSHOT2']
-config_type = app.config['CONFIG_TYPE']
 
+app.wsgi_app = ReverseProxied(app.wsgi_app, script_name=url_subpath)
 #util for using zip in html template
 app.jinja_env.globals.update(zip=zip)
 #JSGlue add
@@ -162,14 +163,16 @@ def testPage():
 
 @app.route('/list/<source>', methods = ['GET'])
 def readySource(source):
-    """source param is : 'structures' or 'doi_oa' oy maybe later 'authors'"""
+    """source param is : 'structures' or 'publishers' oy maybe later 'authors'
+    Temporary we pass the url_subpath as param as long as url_for in js is note working well, waiting for a better solution
+    """
     if source == "structures":
         records = df_structures
     elif source == "publishers":
         records = df_publishers
     else:
         records = pd.read_csv("static/data/df_"+source+".csv",sep = ',',encoding="utf-8").fillna('').to_dict(orient='records')  
-    return render_template('list.html',source=source,len=len(records),records=records) 
+    return render_template('list.html',source=source,len=len(records),records=records,url_subpath=url_subpath) 
 
 @app.route('/dashboard/<source>', methods = ['GET'])
 def dashboard(source,ids=None,prefixs=None):
@@ -189,7 +192,7 @@ def dashboard(source,ids=None,prefixs=None):
             oaGraphsJSON = [json.dumps(f(dataframe=doi_synthetics_aff(ids),publisher_field="publisher_by_doiprefix"), cls=plotly.utils.PlotlyJSONEncoder) for f in oa_functions_fig]
             dashboardGraphsJSON = [json.dumps(f(doi_synthetics_aff(ids)), cls=plotly.utils.PlotlyJSONEncoder) for f in dashboard_functions_fig]
             dashboardNetworkJSON = json.dumps(network(doi_synthetics_aff(ids)))
-            return render_template('dashboard.html',ids=ids,source="structures",names=selected_s,total_records=total_records,oa_functions=oa_functions_str,oa_plots=oaGraphsJSON,oa_titles=oa_titles,dashboard_functions=dashboard_functions_str,dashboard_plots=dashboardGraphsJSON,dashboard_titles=dashboard_titles,dashboard_network=dashboardNetworkJSON)
+            return render_template('dashboard.html',ids=ids,source="structures",names=selected_s,total_records=total_records,url_subpath=url_subpath,oa_functions=oa_functions_str,oa_plots=oaGraphsJSON,oa_titles=oa_titles,dashboard_functions=dashboard_functions_str,dashboard_plots=dashboardGraphsJSON,dashboard_titles=dashboard_titles,dashboard_network=dashboardNetworkJSON)
         else:
             print("no ids submitted")
     if source == "publishers":
@@ -200,7 +203,7 @@ def dashboard(source,ids=None,prefixs=None):
             oaGraphsJSON = [json.dumps(f(dataframe=doi_synthetics_pub(prefixs),publisher_field="publisher_by_doiprefix"), cls=plotly.utils.PlotlyJSONEncoder) for f in oa_functions_fig]
             dashboardGraphsJSON = [json.dumps(f(doi_synthetics_pub(prefixs)), cls=plotly.utils.PlotlyJSONEncoder) for f in dashboard_functions_fig]
             dashboardNetworkJSON = json.dumps(network(doi_synthetics_pub(prefixs)))
-            return render_template('dashboard.html',prefixs=prefixs,source="publishers",names=selected_s,total_records=total_records,oa_functions=oa_functions_str,oa_plots=oaGraphsJSON,oa_titles=oa_titles,dashboard_functions=dashboard_functions_str,dashboard_plots=dashboardGraphsJSON,dashboard_titles=dashboard_titles,dashboard_network=dashboardNetworkJSON)
+            return render_template('dashboard.html',prefixs=prefixs,source="publishers",names=selected_s,total_records=total_records,url_subpath=url_subpath,oa_functions=oa_functions_str,oa_plots=oaGraphsJSON,oa_titles=oa_titles,dashboard_functions=dashboard_functions_str,dashboard_plots=dashboardGraphsJSON,dashboard_titles=dashboard_titles,dashboard_network=dashboardNetworkJSON)
         else:
             print("no ids submitted")
 
@@ -259,11 +262,16 @@ def pub(prefixs):
         records = df_publishers[df_publishers["doi_prefix"].isin(selected)]
         print(records)
     return jsonify(records.fillna('').to_dict(orient='records'))
-
+'''
 if config_type == "production":
-    app.wsgi_app = ReverseProxied(app.wsgi_app, script_name='/uca-oa-barometre')
+    app.wsgi_app = ReverseProxied(app.wsgi_app, script_name=url_subpath)
     if __name__ == '__main__':
         app.run(debug=True,port=port,host=host)  
 elif config_type == "development":
     if __name__ == '__main__':
         app.run(debug=True,port=port)
+
+'''
+if __name__ == '__main__':
+    app.run(debug=True,port=port,host=host)  
+
