@@ -1,14 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from flask import Flask, jsonify, abort, render_template,url_for,request,session, redirect, send_from_directory
+from flask import Flask, jsonify, abort, render_template,url_for,request,session, redirect, send_from_directory, Response, Blueprint
 from flask_caching import Cache
 from flask_cors import CORS, cross_origin
-
-from flask import Response, Blueprint
-from werkzeug.serving import run_simple
-from werkzeug.middleware.dispatcher import DispatcherMiddleware
-import datetime
+from flask_jsglue import JSGlue #to use url_for in js
+#from werkzeug.serving import run_simple
+#from werkzeug.middleware.dispatcher import DispatcherMiddleware
 
 import pandas as pd
 import requests
@@ -31,7 +29,7 @@ import networkx as nx
 from networkx.readwrite import json_graph
 
 class ReverseProxied(object):
-
+    #Class to adapt Flask converted url of static files (/sttaic/js...) according to the url app path
     def __init__(self, app, script_name=None, scheme=None, server=None):
         self.app = app
         self.script_name = script_name
@@ -59,20 +57,23 @@ app = Flask(__name__)
 cache.init_app(app)
 CORS(app)
 
+#config variables
 app.config.from_object('config')
 port = app.config['PORT']
+host = app.config['HOST']
+snapshot = app.config['DATA_SNAPSHOT2']
+config_type = app.config['CONFIG_TYPE']
 
 #util for using zip in html template
 app.jinja_env.globals.update(zip=zip)
-#app.wsgi_app = ReverseProxied(app.wsgi_app, script_name='/uca-oa-barometre')
+#JSGlue add
+jsglue = JSGlue(app)
 
-## Variables
-snapshot1 = "20201130"
-snapshot2 = "20210914"
-df_structures = pd.read_json("static/data/"+snapshot2+"/df_structures.json",encoding="utf-8")
-df_publishers = pd.read_json("static/data/"+snapshot2+"/df_publishers.json",encoding="utf-8",dtype={"doi_prefix": str,"publisher_by_doiprefix": str,"count": int})
-df_corpus = pd.read_csv("static/data/"+snapshot2+"/df_corpus.csv",sep = ',',encoding="utf-8")
-df_doi_oa = pd.read_csv("static/data/"+snapshot2+"/df_doi_oa.csv",sep = ',',encoding="utf-8")
+## Dataframes & viz functions
+df_structures = pd.read_json("static/data/"+snapshot+"/df_structures.json",encoding="utf-8")
+df_publishers = pd.read_json("static/data/"+snapshot+"/df_publishers.json",encoding="utf-8",dtype={"doi_prefix": str,"publisher_by_doiprefix": str,"count": int})
+df_corpus = pd.read_csv("static/data/"+snapshot+"/df_corpus.csv",sep = ',',encoding="utf-8")
+df_doi_oa = pd.read_csv("static/data/"+snapshot+"/df_doi_oa.csv",sep = ',',encoding="utf-8")
 oa_functions_fig = [charts.oa_rate,charts.oa_rate_by_year,charts.oa_rate_by_publisher,charts.oa_rate_by_type,charts.oa_by_status]
 oa_functions_str = ["oa_rate","oa_rate_by_year","oa_rate_by_publisher","oa_rate_by_type","oa_by_status"]
 oa_titles = ["Proportion des publications en accès ouvert","Evolution du taux d'accès ouvert aux publications","Taux d'accès ouvert aux publications par éditeur","Répartition des publications par type de publications et par accès","Part Open Access : Evolution du type d'accès ouvert"]
@@ -171,7 +172,7 @@ def readySource(source):
     return render_template('list.html',source=source,len=len(records),records=records) 
 
 @app.route('/dashboard/<source>', methods = ['GET'])
-def dashboard(source,ids=None):
+def dashboard(source,ids=None,prefixs=None):
     """source param is : 'structures' or 'publishers' or 'uca'"""
     if source == "uca":
         total_records = df_doi_oa.shape[0]
@@ -259,6 +260,10 @@ def pub(prefixs):
         print(records)
     return jsonify(records.fillna('').to_dict(orient='records'))
 
-
-if __name__ == '__main__':
-    app.run(debug=True,port=port)  
+if config_type == "production":
+    app.wsgi_app = ReverseProxied(app.wsgi_app, script_name='/uca-oa-barometre')
+    if __name__ == '__main__':
+        app.run(debug=True,port=port,host=host)  
+elif config_type == "development":
+    if __name__ == '__main__':
+        app.run(debug=True,port=port)

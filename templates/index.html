@@ -16,22 +16,23 @@
         <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename= 'lib/uikit-3.5.7/css/uikit.min.css')}}">
         <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename= 'lib/devextreme-20.1.7/css/dx.common.css')}}">
         
-        <script src="{{ url_for('static', filename= 'js/amchartComponents.js')}}"></script>
         <script src="{{ url_for('static', filename= 'js/functions.js')}}"></script>
+
+        {{ JSGlue.include() }}
     </head>
     <body>
         <nav class="uk-navbar uk-navbar-container uk-margin data-uk-sticky">
             <div class="uk-navbar-left">
-                <a class="uk-navbar-item uk-logo" href="/"><img src="https://bu.univ-cotedazur.fr/fr/contents/images/logo-bibliotheques-universite-cote-dazur" style="width:350px; height:50px;"/></a>
+                <a class="uk-navbar-item uk-logo" href="{{ url_for('homePage') }}"><img src="https://bu.univ-cotedazur.fr/fr/contents/images/logo-bibliotheques-universite-cote-dazur" style="width:350px; height:50px;"/></a>
                 <ul class="uk-navbar-nav">
                     <li>
-                        <a href="/dashboard/uca">UCA</a>
+                        <a href="{{ url_for('dashboard',source='uca') }}">UCA</a>
                     </li>
                     <li>
-                        <a href="/list/structures">Accès par structures</a>
+                        <a href="{{ url_for('readySource',source='structures') }}">Accès par structures</a>
                     </li>
                     <li>
-                        <a href="/list/publishers">Accès par éditeurs</a>
+                        <a href="{{ url_for('readySource',source='publishers') }}">Accès par éditeurs</a>
                     </li>
                 </ul>
             </div>

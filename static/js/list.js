@@ -4,9 +4,8 @@ $("#btn_aff").dxButton({
    var selectedRowKeys = treeList.getSelectedRowKeys();
    var selected2send = Array.from(
     new Set(Array.from(getAllChildren(selectedRowKeys)))).filter(function(d){return d != 1 & d != 2 & d != 3}).join(",")
-    window.open("/dashboard/structures?ids="+selected2send, "_blank");
-  console.log(Array.from(
-    new Set(Array.from(getAllChildren(selectedRowKeys)))).filter(function(d){return d != 1 & d != 2 & d != 3}).join(","));
+    //window.open("/dashboard/structures?ids="+selected2send, "_blank");
+    window.open(Flask.url_for("dashboard", { "source": 'structures', 'ids': selected2send}), "_blank");   
 }
 });
 function* getAllChildren(arr) {
@@ -27,12 +26,13 @@ $("#btn_pub").dxButton({
   text: "Get selection",
   onClick: ()=> {
     var selectedRowKeys = dataGrid.getSelectedRowKeys()
-    var selected2send = $.map(selectedRowKeys, function(value) {return value.doi_prefix}).join(",")
-    window.open("/dashboard/publishers?prefixs="+selected2send, "_blank");
-    //window.open("{{url_for('dashboard',source = 'publishers', prefixs=selected2send}}", "_blank");    
+    var selected2send = selectedRowKeys.map(function(value) {return value.doi_prefix}).join(",")
+    //window.open("/dashboard/publishers?prefixs="+selected2send, "_blank");
+    window.open(Flask.url_for("dashboard", { "source": 'publishers', 'prefixs': selected2send}), "_blank");   
   }
 })
 
+/*Unused dynamic datasource stores by api -> static files prefered
 var store_structures = new DevExpress.data.CustomStore({
   key: "id",
   load: function () {
@@ -55,11 +55,11 @@ var store_publishers = new DevExpress.data.CustomStore({
       error : function(response) {console.log(response.statusText);}
   })					
           }      
-});
+});*/
 
 var treeList = $("#affDatagrid").dxTreeList({
-  //dataSource: "/static/data/20210914/df_structures.json",
-  dataSource: store_structures,
+  dataSource: Flask.url_for("static", {"filename": "data/20210914/df_structures.json"}),
+  //dataSource: store_structures,
   keyExpr: "id",
   parentIdExpr: "parent_id",
   showRowLines: false,
@@ -142,8 +142,8 @@ searchPanel: {
 }).dxTreeList("instance");
 
 var dataGrid = $("#pubDatagrid").dxDataGrid({
-  //dataSource: "/static/data/20210914/df_publishers.json",
-  dataSource: store_publishers,
+  dataSource: Flask.url_for("static", {"filename": "data/20210914/df_publishers.json"}),
+  //dataSource: store_publishers,
   keyExpr: "doi_prefix",
   showBorders: false,
   allowColumnResizing: true,
