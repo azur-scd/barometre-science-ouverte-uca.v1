@@ -71,7 +71,7 @@ app.jinja_env.globals.update(zip=zip)
 df_structures = pd.read_json("static/data/"+snapshot+"/df_structures.json",encoding="utf-8")
 df_publishers = pd.read_json("static/data/"+snapshot+"/df_publishers.json",encoding="utf-8",dtype={"doi_prefix": str,"publisher_by_doiprefix": str,"count": int})
 df_corpus = pd.read_csv("static/data/"+snapshot+"/df_corpus.csv",sep = ',',encoding="utf-8")
-df_doi_oa = pd.read_csv("static/data/"+snapshot+"/df_doi_oa.csv",sep = ',',encoding="utf-8")
+df_doi_oa = pd.read_csv("static/data/"+snapshot+"/df_doi_oa.csv",sep = ',',encoding="utf-8",dtype={"doi_prefix": str})
 oa_functions_fig = [charts.oa_rate,charts.oa_rate_by_year,charts.oa_rate_by_publisher,charts.oa_rate_by_type,charts.oa_by_status]
 oa_functions_str = ["oa_rate","oa_rate_by_year","oa_rate_by_publisher","oa_rate_by_type","oa_by_status"]
 oa_titles = ["Proportion des publications en accès ouvert","Evolution du taux d'accès ouvert aux publications","Taux d'accès ouvert aux publications par éditeur","Répartition des publications par type de publications et par accès","Part Open Access : Evolution du type d'accès ouvert"]
@@ -97,7 +97,6 @@ def doi_synthetics_pub(prefixs=None):
     if prefixs is None:
         data = df_doi_oa
     else:
-        #selected = list(ids.split(","))
         selected = [str(i) for i in prefixs.split(",")]
         data = df_doi_oa[df_doi_oa['doi_prefix'].isin(selected)]
         #d = df_docs[(df_docs['doi'].isin(list_doc)) & (df_docs["doi"].notna())]
@@ -183,7 +182,7 @@ def dashboard(source,ids=None,prefixs=None):
         #dashboardNetworkJSON = json.dumps(network(df_doi_oa),separators=(',', ':'),indent=4)
         dashboardNetworkJSON = json.dumps(network(df_doi_oa))
         return render_template('dashboard.html',source="uca",names="UCA",total_records=total_records,url_subpath=url_subpath,oa_functions=oa_functions_str,oa_plots=oaGraphsJSON,oa_titles=oa_titles,dashboard_functions=dashboard_functions_str,dashboard_plots=dashboardGraphsJSON,dashboard_titles=dashboard_titles,dashboard_network=dashboardNetworkJSON)
-    if source == "structures":
+    elif source == "structures":
         if request.args.get('ids') is not None:
             ids = request.args.get('ids')
             total_records = doi_synthetics_aff(ids).shape[0]
@@ -194,7 +193,7 @@ def dashboard(source,ids=None,prefixs=None):
             return render_template('dashboard.html',ids=ids,source="structures",names=selected_s,total_records=total_records,url_subpath=url_subpath,oa_functions=oa_functions_str,oa_plots=oaGraphsJSON,oa_titles=oa_titles,dashboard_functions=dashboard_functions_str,dashboard_plots=dashboardGraphsJSON,dashboard_titles=dashboard_titles,dashboard_network=dashboardNetworkJSON)
         else:
             print("no ids submitted")
-    if source == "publishers":
+    elif source == "publishers":
         if request.args.get('prefixs') is not None:
             prefixs = request.args.get('prefixs')
             total_records = doi_synthetics_pub(prefixs).shape[0]
@@ -204,7 +203,9 @@ def dashboard(source,ids=None,prefixs=None):
             dashboardNetworkJSON = json.dumps(network(doi_synthetics_pub(prefixs)))
             return render_template('dashboard.html',prefixs=prefixs,source="publishers",names=selected_s,total_records=total_records,url_subpath=url_subpath,oa_functions=oa_functions_str,oa_plots=oaGraphsJSON,oa_titles=oa_titles,dashboard_functions=dashboard_functions_str,dashboard_plots=dashboardGraphsJSON,dashboard_titles=dashboard_titles,dashboard_network=dashboardNetworkJSON)
         else:
-            print("no ids submitted")
+            print("no prefixs submitted")
+    else:
+        print("no source submitted")
 
 #routing for API
 @app.route('/api/publications', methods = ['GET'])
