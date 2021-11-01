@@ -16,11 +16,10 @@
         </div>
         </div>
         <input id="source" type="hidden" value="{{source}}" />
-        {% if source == "structures" %}
         <input type="hidden" id="url_subpath" value="{{url_subpath}}" />
+        {% if source == "structures" %}
         <input id="ids" type="hidden" value="{{ids}}" />
         {% elif source == "publishers"%}
-        <input type="hidden" id="url_subpath" value="{{url_subpath}}" />
         <input id="prefixs" type="hidden" value="{{prefixs}}" />
         {% endif %}
 
@@ -48,11 +47,14 @@
                     <div class="uk-width-auto@m">
                         <div class="uk-card uk-card-hover uk-card-default uk-card-body">
                             {% if source == "structures" %}
-                            <a href="/api/publications?view={{dashboard_functions[0]}}&ids={{ids}}" target="_blanck">Voir les données (accès par API)</a>
+                           <!-- <a href="/api/publications?view={{dashboard_functions[0]}}&ids={{ids}}" target="_blanck">Voir les données (accès par API)</a>-->
+                           <a href="{{ url_for('publis',view=dashboard_functions[0],ids=ids) }}" target="_blanck">Voir les données (accès par API)</a>
                             {% elif source == "publishers"%}
-                            <a href="/api/publications?view={{dashboard_functions[0]}}&prefixs={{prefixs}}" target="_blanck">Voir les données (accès par API)</a>
+                            <!--<a href="/api/publications?view={{dashboard_functions[0]}}&prefixs={{prefixs}}" target="_blanck">Voir les données (accès par API)</a>-->
+                            <a href="{{ url_for('publis',view=dashboard_functions[0],prefixs=prefixs) }}" target="_blanck">Voir les données (accès par API)</a>
                             {% else %}
-                            <a href="/api/publications?view={{dashboard_functions[0]}}" target="_blanck">Voir les données (accès par API)</a>
+                            <!--<a href="/api/publications?view={{dashboard_functions[0]}}" target="_blanck">Voir les données (accès par API)</a>-->
+                            <a href="{{ url_for('publis',view=dashboard_functions[0]) }}" target="_blanck">Voir les données (accès par API)</a>
                             {% endif %}
                         </div>
                       </div> 
@@ -81,11 +83,11 @@
                     <div class="uk-width-auto@m">
                         <div class="uk-card uk-card-hover uk-card-default uk-card-body">
                             {% if source == "structures" %}
-                            <a href="/api/publications?view={{f}}&ids={{ids}}" target="_blanck">Voir les données (accès par API)</a>
+                            <a href="{{ url_for('publis',view=f,ids=ids) }}" target="_blanck">Voir les données (accès par API)</a>
                             {% elif source == "publishers"%}
-                            <a href="/api/publications?view={{f}}&prefixs={{prefixs}}" target="_blanck">Voir les données (accès par API)</a>
+                            <a href="{{ url_for('publis',view=f,prefixs=prefixs) }}" target="_blanck">Voir les données (accès par API)</a>
                             {% else %}
-                            <a href="/api/publications?view={{f}}" target="_blanck">Voir les données (accès par API)</a>
+                            <a href="{{ url_for('publis',view=f) }}" target="_blanck">Voir les données (accès par API)</a>
                             {% endif %}
                         </div>
                       </div>                      
@@ -237,5 +239,6 @@ function dragended(d) {
           </ul>
         </div>
         <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename= 'lib/devextreme-20.1.7/css/dx.material.blue.dark.compact.css')}}">
+        <script src="{{ url_for('static', filename= 'js/config.js')}}"></script>
         <script src="{{ url_for('static', filename= 'js/dashboard.js')}}"></script>
     {% endblock %}

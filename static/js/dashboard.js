@@ -2,13 +2,13 @@ $(function(){
   //if ($("#source").val() === undefined){
 if ($("#source").val() == "uca"){
     console.log("uca")
-    url_datagrid = "/api/publications"
+    url_datagrid = config.url_subpath+"/api/publications"
 }
 else if ($("#source").val() == "structures") {
-  url_datagrid = $("#url_subpath").val()+"/api/publications?ids=" + $("#ids").val()
+  url_datagrid = config.url_subpath+"/api/publications?ids=" + $("#ids").val()
 }
 else if ($("#source").val() == "publishers") {
-  url_datagrid = $("#url_subpath").val()+"/api/publications?prefixs=" + $("#prefixs").val()
+  url_datagrid = config.url_subpath+"/api/publications?prefixs=" + $("#prefixs").val()
 }
 else {
     console.log("error : no source")

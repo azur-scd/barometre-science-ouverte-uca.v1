@@ -4,7 +4,6 @@
 from flask import Flask, jsonify, abort, render_template,url_for,request,session, redirect, send_from_directory, Response, Blueprint
 from flask_caching import Cache
 from flask_cors import CORS, cross_origin
-from flask_jsglue import JSGlue #to use url_for in js
 #from werkzeug.serving import run_simple
 #from werkzeug.middleware.dispatcher import DispatcherMiddleware
 
@@ -29,7 +28,7 @@ import networkx as nx
 from networkx.readwrite import json_graph
 
 class ReverseProxied(object):
-    #Class to adapt Flask converted url of static files (/sttaic/js...) according to the url app path
+    #Class to dynamically adapt Flask converted url of static files (/sttaic/js...) + templates html href links according to the url app path after the hostname (set in cnfig.py)
     def __init__(self, app, script_name=None, scheme=None, server=None):
         self.app = app
         self.script_name = script_name
@@ -67,8 +66,6 @@ snapshot = app.config['DATA_SNAPSHOT2']
 app.wsgi_app = ReverseProxied(app.wsgi_app, script_name=url_subpath)
 #util for using zip in html template
 app.jinja_env.globals.update(zip=zip)
-#JSGlue add
-jsglue = JSGlue(app)
 
 ## Dataframes & viz functions
 df_structures = pd.read_json("static/data/"+snapshot+"/df_structures.json",encoding="utf-8")
@@ -176,14 +173,16 @@ def readySource(source):
 
 @app.route('/dashboard/<source>', methods = ['GET'])
 def dashboard(source,ids=None,prefixs=None):
-    """source param is : 'structures' or 'publishers' or 'uca'"""
+    """source param is : 'structures' or 'publishers' or 'uca'
+    Temporary we pass the url_subpath as param as long as url_for in js is note working well, waiting for a better solution
+    """
     if source == "uca":
         total_records = df_doi_oa.shape[0]
         oaGraphsJSON = [json.dumps(f(dataframe=df_doi_oa,publisher_field="publisher_by_doiprefix"), cls=plotly.utils.PlotlyJSONEncoder) for f in oa_functions_fig]
         dashboardGraphsJSON = [json.dumps(f(df_doi_oa), cls=plotly.utils.PlotlyJSONEncoder) for f in dashboard_functions_fig]
         #dashboardNetworkJSON = json.dumps(network(df_doi_oa),separators=(',', ':'),indent=4)
         dashboardNetworkJSON = json.dumps(network(df_doi_oa))
-        return render_template('dashboard.html',source="uca",names="UCA",total_records=total_records,oa_functions=oa_functions_str,oa_plots=oaGraphsJSON,oa_titles=oa_titles,dashboard_functions=dashboard_functions_str,dashboard_plots=dashboardGraphsJSON,dashboard_titles=dashboard_titles,dashboard_network=dashboardNetworkJSON)
+        return render_template('dashboard.html',source="uca",names="UCA",total_records=total_records,url_subpath=url_subpath,oa_functions=oa_functions_str,oa_plots=oaGraphsJSON,oa_titles=oa_titles,dashboard_functions=dashboard_functions_str,dashboard_plots=dashboardGraphsJSON,dashboard_titles=dashboard_titles,dashboard_network=dashboardNetworkJSON)
     if source == "structures":
         if request.args.get('ids') is not None:
             ids = request.args.get('ids')
