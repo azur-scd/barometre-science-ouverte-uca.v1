@@ -20,7 +20,18 @@ gunicorn --bind 0000:5000 wsgi:app
 ```
 - Configure the http web server on the remote server to be used as a reverse proxy (create a new virtualhost for Apache or a new config file in /etc/nginx/sites-available for Nginx)
 
-The app is running on http://your_server_ip:5000
+```
+#Apache virtualhost example
+<VirtualHost *:80>
+    ProxyPreserveHost On
+    ServerName dev-scd.unice.fr
+
+    ProxyPass /uca-oa-barometre/ http://localhost:5000/
+    ProxyPassReverse /uca-oa-barometre/ http://dev-scd.unice.fr/uca-oa-barometre/
+</VirtualHost>
+```
+
+The app is running on http://your_server_ip:5000/URL_SUBPATH
 
 ## Development mode
 
@@ -35,7 +46,7 @@ pip install -r requirements.txt
 set FLASK_APP=app
 flask run
 ```
-The app is running on http://localhost:5000
+The app is running on http://localhost:5000/URL_SUBPATH
 
 ## Docker
 
