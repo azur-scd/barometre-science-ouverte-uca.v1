@@ -52,6 +52,12 @@ docker run --name CONTAINER_NAME -d -p 5000:5000 IMAGE_NAME:TAG
 ```
 Le container est démarré sur le port 5000, il suffit alors (en local) d'ouvrir l'url http://localhost:5000/URL_SUBPATH pour voir l'application.
 
+## CI pipeline
+
+En paramétrant un workflow adéquat dans les Github ACtions, on peut mettre en place un pipeline d'intégration continue du type : code local push to Github -> github action : build de l'image Docker + push sur Docker Hub.
+
+Documentation (y compris la création d'Access Token sur Docker Hub) : (https://docs.docker.com/ci-cd/github-actions/)[https://docs.docker.com/ci-cd/github-actions/]
+
 ## Docker Hub
 
 Une image de l'application est aussi disponible sur le registre public Docker Hub
